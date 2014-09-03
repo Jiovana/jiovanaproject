@@ -30,7 +30,7 @@ public class CaixaEletronico {
         
         
         //entrada e saida dados conta
-        c.AbrirConta("059750" ,"1489"," Marcos");       
+        c.AbrirConta("059750" ,"1489","Jiovana");       
         JOptionPane.showMessageDialog(null," Informações da conta: \nCorrentista: " +c.getNomeCorrentista()+"\nAgencia: "+c.getAgencia()+"\nNumero da conta: "+c.getNumeroConta());
         deucerto = c.Depositar(150.0);
         if(deucerto==true){
