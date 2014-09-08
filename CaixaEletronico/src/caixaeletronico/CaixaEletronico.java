@@ -87,7 +87,7 @@ public class CaixaEletronico {
          aux = " ";
         //entrada dados cliente
          pessoa.setNome(JOptionPane.showInputDialog("Informe o nome do cliente: "));
-         pessoa.setCpf(Integer.parseInt(JOptionPane.showInputDialog("Informe o cpf do cliente: ")));
+         pessoa.setCpf(JOptionPane.showInputDialog("Informe o cpf do cliente: "));
          pessoa.setNascimento(JOptionPane.showInputDialog("Informe a data de nascimento do cliente: "));
          pessoa.setEndereço(JOptionPane.showInputDialog("Informe o endereço do cliente: "));
          aux = JOptionPane.showInputDialog("O cliente se encontra negativado no SPC? S/N");

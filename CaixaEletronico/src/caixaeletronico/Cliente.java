@@ -12,18 +12,18 @@ package caixaeletronico;
  */
 public class Cliente {
     
-    private Integer cpf;
+    private String cpf;
     private String nome;
     private String nascimento;
     private String endereço;
     private Boolean negativadoSPC;
     private Boolean negativadoSerasa;
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
