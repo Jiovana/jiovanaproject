@@ -18,6 +18,13 @@ public class Conta {
     private String Agencia, NumeroConta, NomeCorrentista;
     private Double Saldo;
     private Boolean Ativo;
+    
+    public Conta(){
+        Saldo =  15.78;
+        Agencia = "000124";
+        Ativo = true;
+        
+    }
 
     public String getAgencia() {
         return Agencia;
