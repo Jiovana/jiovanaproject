@@ -11,5 +11,36 @@ package televisaojiovana;
  * @author Aluno
  */
 public class Emissora {
+    private String nome, endereco;
+    private Boolean tipo;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public Boolean isTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Boolean tipo) {
+        this.tipo = tipo;
+    }
+    public Emissora(){
+        nome = null;
+        endereco = null;
+        tipo = true;
+    }
     
 }
