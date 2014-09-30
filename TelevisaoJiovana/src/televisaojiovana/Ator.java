@@ -13,7 +13,7 @@ package televisaojiovana;
 public class Ator {
    
     private String nome, nascimento, email,  nomea, cidade, endereco, bairro, estado;
-    private Integer qtdnovela, qtdevento;
+    private Integer qtdnovela;
     private Double salariom, cacheev;
 
     public String getNome() {
