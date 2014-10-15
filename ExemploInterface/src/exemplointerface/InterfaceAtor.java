@@ -6,6 +6,8 @@
 
 package exemplointerface;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aluno
@@ -55,7 +57,7 @@ public class InterfaceAtor extends javax.swing.JFrame {
         botaoLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(0, 0, 102));
 
         jLabel1.setBackground(new java.awt.Color(204, 255, 204));
         jLabel1.setFont(new java.awt.Font("Gabriola", 1, 24)); // NOI18N
@@ -125,6 +127,11 @@ public class InterfaceAtor extends javax.swing.JFrame {
         botaoLimpar.setBackground(new java.awt.Color(51, 51, 255));
         botaoLimpar.setFont(new java.awt.Font("Gabriola", 1, 14)); // NOI18N
         botaoLimpar.setText("Limpar");
+        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,9 +157,8 @@ public class InterfaceAtor extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(textNomeArt, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(textQtdNovela, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                        .addComponent(textData, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(textQtdNovela, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                    .addComponent(textData)
                                     .addComponent(textNome)
                                     .addComponent(textEmail)
                                     .addComponent(textSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,8 +265,34 @@ public class InterfaceAtor extends javax.swing.JFrame {
         cidade = textCidade.getText();
         bairro = textBairro.getText();
         endereco = textEndereco.getText();
+        qtdnovela = Integer.parseInt(textQtdNovela.getText());
+        salario = Double.parseDouble(textSalario.getText());
+        cache = Double.parseDouble(textCache.getText());
+        if(nome.equals(" ") || nascimento.equals("") || email.equals("") || nomeart.equals("") || selecaoEstado.getSelectedIndex() == 0 || cidade.equals("") || bairro.equals("") || endereco.equals("")){
+            JOptionPane.showMessageDialog(null, "Complete todas as lacunas..");
+        }else{
+            JOptionPane.showMessageDialog(null, "Informações:\nNome: " +nome +"\nData de Nascimento: " +nascimento +"\nEmail: " +email
+                    +"\nNome Artístico: " +nomeart +"\nLocalização: " +endereco +",bairro " +bairro +", " +cidade +"- " +estado +"\nQuantidade de novelas que participou: " +qtdnovela
+                    +"\nSalário: " +salario +"\nCachê por eventos: " +cache);
+        }
         
     }//GEN-LAST:event_botaoInformaActionPerformed
+
+    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
+        // TODO add your handling code here:
+        textNome.setText(null);
+        textData.setText(null);
+        textEmail.setText(null);
+        textNomeArt.setText(null);
+        selecaoEstado.setSelectedIndex(0);
+        textCidade.setText(null);
+        textBairro.setText(null);
+        textEndereco.setText(null);
+        textQtdNovela.setText(null);
+        textSalario.setText(null);
+        textCache.setText(null);
+                
+    }//GEN-LAST:event_botaoLimparActionPerformed
     
     /**
      * @param args the command line arguments
