@@ -4,7 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="99" red="99" type="rgb"/>
+      <Color blue="66" green="0" red="0" type="rgb"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -48,10 +48,8 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="textNomeArt" alignment="0" pref="163" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="textQtdNovela" alignment="0" pref="77" max="32767" attributes="0"/>
-                                      <Component id="textData" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="textQtdNovela" alignment="0" pref="163" max="32767" attributes="0"/>
+                                  <Component id="textData" alignment="0" max="32767" attributes="0"/>
                                   <Component id="textNome" max="32767" attributes="0"/>
                                   <Component id="textEmail" alignment="0" max="32767" attributes="0"/>
                                   <Component id="textSalario" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
@@ -366,6 +364,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Limpar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
