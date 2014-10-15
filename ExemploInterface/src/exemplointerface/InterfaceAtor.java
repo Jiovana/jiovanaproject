@@ -161,17 +161,16 @@ public class InterfaceAtor extends javax.swing.JFrame {
                                     .addComponent(textData)
                                     .addComponent(textNome)
                                     .addComponent(textEmail)
-                                    .addComponent(textSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textCidade)))
+                                    .addComponent(textCidade)
+                                    .addComponent(textSalario)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel9))
                                 .addGap(149, 149, 149)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(textCache, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(selecaoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textCache)
+                                    .addComponent(selecaoEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
@@ -268,7 +267,8 @@ public class InterfaceAtor extends javax.swing.JFrame {
         qtdnovela = Integer.parseInt(textQtdNovela.getText());
         salario = Double.parseDouble(textSalario.getText());
         cache = Double.parseDouble(textCache.getText());
-        if(nome.equals(" ") || nascimento.equals("") || email.equals("") || nomeart.equals("") || selecaoEstado.getSelectedIndex() == 0 || cidade.equals("") || bairro.equals("") || endereco.equals("")){
+        if(nome.equals(" ") || nascimento.equals("") || email.equals("") || nomeart.equals("") || selecaoEstado.getSelectedIndex() == 0 || cidade.equals("") || bairro.equals("") || endereco.equals("") 
+        ){
             JOptionPane.showMessageDialog(null, "Complete todas as lacunas..");
         }else{
             JOptionPane.showMessageDialog(null, "Informações:\nNome: " +nome +"\nData de Nascimento: " +nascimento +"\nEmail: " +email
