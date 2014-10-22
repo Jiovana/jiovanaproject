@@ -47,12 +47,15 @@ public class EmissoraTela extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         selecao = new javax.swing.JComboBox();
-        jButton3 = new javax.swing.JButton();
+        btncadastrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         primeiro = new javax.swing.JButton();
         anterior = new javax.swing.JButton();
         proximo = new javax.swing.JButton();
         ultimo = new javax.swing.JButton();
+        btnexcluir = new javax.swing.JButton();
+        btnconsultar = new javax.swing.JButton();
+        btnatualizar = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -97,10 +100,10 @@ public class EmissoraTela extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Cadastrar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btncadastrar.setText("Cadastrar");
+        btncadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btncadastrarActionPerformed(evt);
             }
         });
 
@@ -147,7 +150,7 @@ public class EmissoraTela extends javax.swing.JFrame {
                 .addComponent(proximo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ultimo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,42 +163,65 @@ public class EmissoraTela extends javax.swing.JFrame {
                 .addGap(0, 20, Short.MAX_VALUE))
         );
 
+        btnexcluir.setText("Excluir");
+        btnexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnexcluirActionPerformed(evt);
+            }
+        });
+
+        btnconsultar.setText("Consultar");
+        btnconsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnconsultarActionPerformed(evt);
+            }
+        });
+
+        btnatualizar.setText("Atualizar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(jButton2)
-                                .addGap(44, 44, 44)
-                                .addComponent(jButton3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textEndereco)
-                                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(textEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(selecao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(41, 41, 41)))))
-                        .addGap(32, 32, 32))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(119, 119, 119)
-                            .addComponent(jLabel4))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                                        .addComponent(selecao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(btnexcluir)
+                                            .addComponent(jButton2))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnconsultar)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btncadastrar))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(55, 55, 55)
+                                                .addComponent(btnatualizar))))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,23 +230,31 @@ public class EmissoraTela extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(textEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(selecao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(42, 42, 42)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(29, Short.MAX_VALUE))
+                    .addComponent(btnconsultar)
+                    .addComponent(btncadastrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnatualizar)
+                    .addComponent(btnexcluir))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         pack();
@@ -240,7 +274,7 @@ public class EmissoraTela extends javax.swing.JFrame {
         
     }//GEN-LAST:event_selecaoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btncadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadastrarActionPerformed
         // TODO add your handling code here:
         Emissora obj = new Emissora();
         obj.setNome(textNome.getText());
@@ -262,7 +296,7 @@ public class EmissoraTela extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btncadastrarActionPerformed
 
     private void primeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeiroActionPerformed
         // TODO add your handling code here:
@@ -279,29 +313,30 @@ public class EmissoraTela extends javax.swing.JFrame {
 
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
         // TODO add your handling code here:
-        
-            posicao = lista.size();
-            Emissora aux = lista.get(posicao-2);
-            textNome.setText(aux.getNome());
-            textEndereco.setText(aux.getEndereco());
-            if(aux.isTipo()==true){
-                selecao.setSelectedIndex(1);
-            }else{
-                selecao.setSelectedIndex(2);
+            for(int i = posicao ; i < lista.size();i--){
+                Emissora aux = lista.get(i);
+                textNome.setText(aux.getNome());
+                textEndereco.setText(aux.getEndereco());
+                if(aux.isTipo()==true){
+                    selecao.setSelectedIndex(1);
+                }else{
+                    selecao.setSelectedIndex(2);
+                }
             }
-        
+            
     }//GEN-LAST:event_anteriorActionPerformed
 
     private void proximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoActionPerformed
         // TODO add your handling code here:
-        posicao = 0;
-        Emissora aux = lista.get(posicao+1);
-            textNome.setText(aux.getNome());
-            textEndereco.setText(aux.getEndereco());
-            if(aux.isTipo()==true){
-                selecao.setSelectedIndex(1);
-            }else{
-                selecao.setSelectedIndex(2);
+            for(int i = posicao ; i < lista.size();i++){
+                Emissora aux = lista.get(i);
+                textNome.setText(aux.getNome());
+                textEndereco.setText(aux.getEndereco());
+                if(aux.isTipo()==true){
+                    selecao.setSelectedIndex(1);
+                }else{
+                    selecao.setSelectedIndex(2);
+            }
             }
     }//GEN-LAST:event_proximoActionPerformed
 
@@ -318,6 +353,32 @@ public class EmissoraTela extends javax.swing.JFrame {
             selecao.setSelectedIndex(2);
         }
     }//GEN-LAST:event_ultimoActionPerformed
+
+    private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
+        // TODO add your handling code here:
+        lista.remove(lista.get(posicao));
+        Limpar();
+    }//GEN-LAST:event_btnexcluirActionPerformed
+
+    private void btnconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarActionPerformed
+        // TODO add your handling code here:
+        String nome = JOptionPane.showInputDialog("Digite o nome a ser pesquisado: ");
+        Boolean encontrou = false;
+        for(Emissora emissora : lista){
+            //perguntar se o texto digitado é igual ao elemento da lista
+            if(nome.equals(emissora.getNome())){
+                encontrou = true;
+                //exibir conteudo no formulario
+                textNome.setText(emissora.getNome());
+                break;
+            } 
+        }
+        if(encontrou == true){
+                JOptionPane.showMessageDialog(null,"Achou!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Não Achou!");
+        }
+    }//GEN-LAST:event_btnconsultarActionPerformed
     private void Limpar(){
         textNome.setText(null);
         textEndereco.setText(null);
@@ -360,8 +421,11 @@ public class EmissoraTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;
+    private javax.swing.JButton btnatualizar;
+    private javax.swing.JButton btncadastrar;
+    private javax.swing.JButton btnconsultar;
+    private javax.swing.JButton btnexcluir;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
