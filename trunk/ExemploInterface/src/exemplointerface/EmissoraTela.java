@@ -312,32 +312,40 @@ public class EmissoraTela extends javax.swing.JFrame {
     }//GEN-LAST:event_primeiroActionPerformed
 
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
-        // TODO add your handling code here:
-            for(int i = posicao ; i < lista.size();i--){
-                Emissora aux = lista.get(i);
-                textNome.setText(aux.getNome());
-                textEndereco.setText(aux.getEndereco());
-                if(aux.isTipo()==true){
-                    selecao.setSelectedIndex(1);
-                }else{
-                    selecao.setSelectedIndex(2);
+      
+                for (Emissora emi: lista) {
+                    if(posicao>=0){
+                        emi = lista.get(posicao-1); 
+                        textNome.setText(emi.getNome());
+                        textEndereco.setText(emi.getEndereco());
+                        if(emi.isTipo()==true){
+                            selecao.setSelectedIndex(1);
+                        }else{
+                            selecao.setSelectedIndex(2);
+                        }
+                    }
                 }
-            }
+            
+               
+            
             
     }//GEN-LAST:event_anteriorActionPerformed
 
     private void proximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoActionPerformed
-        // TODO add your handling code here:
-            for(int i = posicao ; i < lista.size();i++){
-                Emissora aux = lista.get(i);
-                textNome.setText(aux.getNome());
-                textEndereco.setText(aux.getEndereco());
-                if(aux.isTipo()==true){
-                    selecao.setSelectedIndex(1);
-                }else{
-                    selecao.setSelectedIndex(2);
-            }
-            }
+        
+                for (Emissora emissora : lista) {
+                    if(posicao<lista.size()){
+                    emissora = lista.get(posicao+1);
+                    textNome.setText(emissora.getNome());
+                    textEndereco.setText(emissora.getEndereco());
+                        if(emissora.isTipo()==true){
+                        selecao.setSelectedIndex(1);
+                        }else{
+                        selecao.setSelectedIndex(2);
+                        }
+                    }
+                }  
+              
     }//GEN-LAST:event_proximoActionPerformed
 
     private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
