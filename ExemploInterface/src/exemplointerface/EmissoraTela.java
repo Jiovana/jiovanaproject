@@ -44,7 +44,6 @@ public class EmissoraTela extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         textNome = new javax.swing.JTextField();
         textEndereco = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         selecao = new javax.swing.JComboBox();
@@ -78,13 +77,6 @@ public class EmissoraTela extends javax.swing.JFrame {
 
         textEndereco.setFont(new java.awt.Font("Traditional Arabic", 2, 12)); // NOI18N
         textEndereco.setForeground(new java.awt.Color(102, 102, 255));
-
-        jButton1.setText("Exibir Informações");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel4.setBackground(new java.awt.Color(255, 51, 51));
         jLabel4.setFont(new java.awt.Font("Traditional Arabic", 2, 24)); // NOI18N
@@ -174,27 +166,28 @@ public class EmissoraTela extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton2)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton3))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(textEndereco)
-                                .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(selecao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(41, 41, 41)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jButton2)
+                                .addGap(44, 44, 44)
+                                .addComponent(jButton3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textEndereco)
+                                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(selecao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(41, 41, 41)))))
+                        .addGap(32, 32, 32))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(119, 119, 119)
@@ -225,7 +218,6 @@ public class EmissoraTela extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -233,20 +225,6 @@ public class EmissoraTela extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String nome, endereco, exibicao;
-        nome = textNome.getText();
-        endereco = textEndereco.getText();
-        //pegar o q está selecionado
-        exibicao = selecao.getSelectedItem().toString();
-        if (nome.equals("") ||  endereco.equals("") ||  selecao.getSelectedIndex() == 0 ){
-            JOptionPane.showMessageDialog(null,"Complete todas as lacunas");
-        }else{
-                JOptionPane.showMessageDialog(null,"Nome:" +nome +"\nEndereço: " +endereco +"\nExibição: " +exibicao);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void textNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeActionPerformed
         // TODO add your handling code here:
@@ -273,8 +251,17 @@ public class EmissoraTela extends javax.swing.JFrame {
             obj.setTipo(false);
         }
         lista.add(obj);
-        JOptionPane.showMessageDialog(null, "Emissora Cadastrada");
-        Limpar();
+        String nome, endereco;
+        nome = textNome.getText();
+        endereco = textEndereco.getText();
+        if (nome.equals("") ||  endereco.equals("") ||  selecao.getSelectedIndex() == 0 ){
+            JOptionPane.showMessageDialog(null,"Complete todas as lacunas");
+        }else{
+               JOptionPane.showMessageDialog(null, "Emissora Cadastrada");
+               Limpar();
+        }
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void primeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeiroActionPerformed
@@ -292,14 +279,44 @@ public class EmissoraTela extends javax.swing.JFrame {
 
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
         // TODO add your handling code here:
+        
+            posicao = lista.size();
+            Emissora aux = lista.get(posicao-2);
+            textNome.setText(aux.getNome());
+            textEndereco.setText(aux.getEndereco());
+            if(aux.isTipo()==true){
+                selecao.setSelectedIndex(1);
+            }else{
+                selecao.setSelectedIndex(2);
+            }
+        
     }//GEN-LAST:event_anteriorActionPerformed
 
     private void proximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoActionPerformed
         // TODO add your handling code here:
+        posicao = 0;
+        Emissora aux = lista.get(posicao+1);
+            textNome.setText(aux.getNome());
+            textEndereco.setText(aux.getEndereco());
+            if(aux.isTipo()==true){
+                selecao.setSelectedIndex(1);
+            }else{
+                selecao.setSelectedIndex(2);
+            }
     }//GEN-LAST:event_proximoActionPerformed
 
     private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
         // TODO add your handling code here:
+        
+        posicao = lista.size();
+        Emissora coisa = lista.get(posicao-1);
+        textNome.setText(coisa.getNome());
+        textEndereco.setText(coisa.getEndereco());
+        if(coisa.isTipo()==true){
+            selecao.setSelectedIndex(1);
+        }else{
+            selecao.setSelectedIndex(2);
+        }
     }//GEN-LAST:event_ultimoActionPerformed
     private void Limpar(){
         textNome.setText(null);
@@ -343,7 +360,6 @@ public class EmissoraTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
