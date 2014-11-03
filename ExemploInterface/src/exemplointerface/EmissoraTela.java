@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package exemplointerface;
 
 import java.util.ArrayList;
@@ -21,11 +20,12 @@ public class EmissoraTela extends javax.swing.JFrame {
      */
     List<Emissora> lista;
     Integer posicao;
+
     public EmissoraTela() {
         initComponents();
-      lista = new ArrayList<Emissora>();
-      posicao = 0;
-        
+        lista = new ArrayList<Emissora>();
+        posicao = 0;
+
     }
 
     /**
@@ -271,7 +271,7 @@ public class EmissoraTela extends javax.swing.JFrame {
 
     private void selecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecaoActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_selecaoActionPerformed
 
     private void btncadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadastrarActionPerformed
@@ -279,23 +279,23 @@ public class EmissoraTela extends javax.swing.JFrame {
         Emissora obj = new Emissora();
         obj.setNome(textNome.getText());
         obj.setEndereco(textEndereco.getText());
-        if(selecao.getSelectedItem().toString().equals("Aberta")==true){
+        if (selecao.getSelectedItem().toString().equals("Aberta") == true) {
             obj.setTipo(true);
-        }else{
+        } else {
             obj.setTipo(false);
         }
         lista.add(obj);
         String nome, endereco;
         nome = textNome.getText();
         endereco = textEndereco.getText();
-        if (nome.equals("") ||  endereco.equals("") ||  selecao.getSelectedIndex() == 0 ){
-            JOptionPane.showMessageDialog(null,"Complete todas as lacunas");
-        }else{
-               JOptionPane.showMessageDialog(null, "Emissora Cadastrada");
-               Limpar();
+        if (nome.equals("") || endereco.equals("") || selecao.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Complete todas as lacunas");
+        } else {
+            JOptionPane.showMessageDialog(null, "Emissora Cadastrada");
+            Limpar();
         }
-        
-        
+
+
     }//GEN-LAST:event_btncadastrarActionPerformed
 
     private void primeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeiroActionPerformed
@@ -304,60 +304,58 @@ public class EmissoraTela extends javax.swing.JFrame {
         Emissora elemento = lista.get(0);
         textNome.setText(elemento.getNome());
         textEndereco.setText(elemento.getEndereco());
-        if(elemento.isTipo()==true){
+        if (elemento.isTipo() == true) {
             selecao.setSelectedIndex(1);
-        }else{
+        } else {
             selecao.setSelectedIndex(2);
         }
     }//GEN-LAST:event_primeiroActionPerformed
 
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
-      
-                for (Emissora emi: lista) {
-                    if(posicao>=0){
-                        emi = lista.get(posicao-1); 
-                        textNome.setText(emi.getNome());
-                        textEndereco.setText(emi.getEndereco());
-                        if(emi.isTipo()==true){
-                            selecao.setSelectedIndex(1);
-                        }else{
-                            selecao.setSelectedIndex(2);
-                        }
-                    }
+        if (posicao >0) {
+           
+                posicao = posicao -1;
+                Emissora emi;
+                emi = lista.get(posicao);
+                textNome.setText(emi.getNome());
+                textEndereco.setText(emi.getEndereco());
+                if (emi.isTipo() == true) {
+                    selecao.setSelectedIndex(1);
+                } else {
+                    selecao.setSelectedIndex(2);
                 }
             
-               
-            
-            
+        }
+
+
     }//GEN-LAST:event_anteriorActionPerformed
 
     private void proximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoActionPerformed
-        
-                for (Emissora emissora : lista) {
-                    if(posicao<lista.size()){
-                    emissora = lista.get(posicao+1);
-                    textNome.setText(emissora.getNome());
-                    textEndereco.setText(emissora.getEndereco());
-                        if(emissora.isTipo()==true){
-                        selecao.setSelectedIndex(1);
-                        }else{
-                        selecao.setSelectedIndex(2);
-                        }
-                    }
-                }  
-              
+        if (posicao < lista.size()) {
+                posicao = posicao +1;
+                Emissora sora;
+                sora = lista.get(posicao);
+                textNome.setText(sora.getNome());
+                textEndereco.setText(sora.getEndereco());
+                if (sora.isTipo() == true) {
+                    selecao.setSelectedIndex(1);
+                } else {
+                    selecao.setSelectedIndex(2);
+                }
+        }
+
     }//GEN-LAST:event_proximoActionPerformed
 
     private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
         // TODO add your handling code here:
-        
+
         posicao = lista.size();
-        Emissora coisa = lista.get(posicao-1);
+        Emissora coisa = lista.get(posicao - 1);
         textNome.setText(coisa.getNome());
         textEndereco.setText(coisa.getEndereco());
-        if(coisa.isTipo()==true){
+        if (coisa.isTipo() == true) {
             selecao.setSelectedIndex(1);
-        }else{
+        } else {
             selecao.setSelectedIndex(2);
         }
     }//GEN-LAST:event_ultimoActionPerformed
@@ -372,26 +370,27 @@ public class EmissoraTela extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nome = JOptionPane.showInputDialog("Digite o nome a ser pesquisado: ");
         Boolean encontrou = false;
-        for(Emissora emissora : lista){
+        for (Emissora emissora : lista) {
             //perguntar se o texto digitado é igual ao elemento da lista
-            if(nome.equals(emissora.getNome())){
+            if (nome.equals(emissora.getNome())) {
                 encontrou = true;
                 //exibir conteudo no formulario
                 textNome.setText(emissora.getNome());
                 break;
-            } 
+            }
         }
-        if(encontrou == true){
-                JOptionPane.showMessageDialog(null,"Achou!");
-        }else{
-            JOptionPane.showMessageDialog(null,"Não Achou!");
+        if (encontrou == true) {
+            JOptionPane.showMessageDialog(null, "Achou!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Não Achou!");
         }
     }//GEN-LAST:event_btnconsultarActionPerformed
-    private void Limpar(){
+    private void Limpar() {
         textNome.setText(null);
         textEndereco.setText(null);
         selecao.setSelectedIndex(0);
     }
+
     /**
      * @param args the command line arguments
      */
