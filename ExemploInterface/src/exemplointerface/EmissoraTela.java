@@ -370,14 +370,18 @@ public class EmissoraTela extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nome = JOptionPane.showInputDialog("Digite o nome a ser pesquisado: ");
         Boolean encontrou = false;
+        Integer posicaoachou=0;
         for (Emissora emissora : lista) {
             //perguntar se o texto digitado é igual ao elemento da lista
             if (nome.equals(emissora.getNome())) {
+                //atualiza posicao
+                posicao = posicaoachou;
                 encontrou = true;
                 //exibir conteudo no formulario
                 textNome.setText(emissora.getNome());
                 break;
             }
+            posicaoachou++;
         }
         if (encontrou == true) {
             JOptionPane.showMessageDialog(null, "Achou!");
