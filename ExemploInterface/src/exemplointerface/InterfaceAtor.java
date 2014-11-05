@@ -486,8 +486,8 @@ public class InterfaceAtor extends javax.swing.JFrame {
         textQtdNovela.setText(a.getQtdnovela().toString());
         textSalario.setText(a.getSalariom().toString());
         textCache.setText(a.getCacheev().toString());
-        textQtdEvento.setText(aux.toString());
-        textGanhos.setText(total.toString());
+       
+        textGanhos.setText(a.calcularGanhos(1).toString());
         
         
     }//GEN-LAST:event_bPrimeiroActionPerformed
