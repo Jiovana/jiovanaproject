@@ -49,7 +49,7 @@ public class Fritas extends Produto {
     }
     public String descricaoCardapioF(){
         String retorno;
-        retorno = this.descricaoCardapio() +", " +this.tamanho;
+        retorno = super.CadastraCardapio() +", " +this.tamanho;
         return retorno;
     }
 }

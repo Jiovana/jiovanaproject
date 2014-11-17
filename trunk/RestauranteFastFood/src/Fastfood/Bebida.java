@@ -59,7 +59,7 @@ public class Bebida extends Produto {
     
     public String descricaoCardapioB (){
         String retorno;
-        retorno = this.descricaoCardapio() +", " +this.quantidadeb + " " +this.unidademedidab;
+        retorno = super.CadastraCardapio() +", " +this.quantidadeb + " " +this.unidademedidab;
         return retorno;
     }
     
