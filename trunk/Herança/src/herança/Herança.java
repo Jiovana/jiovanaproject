@@ -25,7 +25,19 @@ public class Herança {
         arquivoV.setDuracao("30 min");
         arquivoV.setAutor("Mathews");
         
-        System.out.println(arquivoV.retornaInformaToda());
+        //System.out.println(arquivoV.retornaInformacoes());
+        
+        Arquivo arquivo = new Arquivo();
+        
+        arquivo.setNome("coisa");
+        arquivo.setTipo("mp4");
+        arquivo.setTamanho("50mb");
+        
+        GerenciadordeArquivo gerencia = new GerenciadordeArquivo();
+        gerencia.setSistemaoperacional("windows 8");
+        
+        System.out.println(gerencia.visualizarArquivo(arquivoV));
+        
     }
     
 }
