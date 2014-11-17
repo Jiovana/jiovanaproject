@@ -49,7 +49,7 @@ public class Hamburguer extends Produto{
     }
     public String descricaoCardapioH(){
         String retorna;
-        retorna = this.descricaoCardapio() +", " +this.novoh;
+        retorna = super.CadastraCardapio() +", " +this.novoh;
         return retorna;
     }
     

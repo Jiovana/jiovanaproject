@@ -67,13 +67,15 @@ public class Oferta extends Produto {
     }
     
     public Double valorEconomia(){
-       Double total = 0.0;
+       Double total, aux;
        //total = valor das coisas normal - valor com oferta
+       aux = hamburgero.getPrecoH() + bebidao.getPrecoB() + fritaso.getPrecoF();
+       total = precoo - aux;
        return total;
     }
     public String descricaoCardapioO(){
         String retorno;
-        retorno = this.descricaoCardapio() +": " +this.hamburgero.getNomeH() +", " +this.fritaso.getNomeF() +" "
+        retorno = super.CadastraCardapio() +": " +this.hamburgero.getNomeH() +", " +this.fritaso.getNomeF() +" "
                 +this.fritaso.getTamanhoF() +", " +this.bebidao.getNomeB() +this.bebidao.getQuantidadeB() +" "
                 +this.bebidao.getUnidademedidaB();
         return retorno;

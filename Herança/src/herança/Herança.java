@@ -36,7 +36,7 @@ public class Herança {
         GerenciadordeArquivo gerencia = new GerenciadordeArquivo();
         gerencia.setSistemaoperacional("windows 8");
         
-        System.out.println(gerencia.visualizarArquivo(arquivoV));
+        System.out.println(gerencia.visualizarArquivo(arquivo));
         
     }
     
