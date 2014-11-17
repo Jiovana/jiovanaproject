@@ -30,9 +30,10 @@ public class Arquivovideo extends Arquivo{
         this.autor = autor;
     }
     
-    public String retornaInformaToda(){
+    public String retornaInformacoes(){
         String retorno;
-        retorno = this.retornaInformacoes() +" / " +this.duracao +" - " + this.autor;
+        //super retorna coisas da classe "pai" 
+        retorno = super.retornaInformacoes() +" / " +this.duracao +" - " + this.autor;
         return retorno;
     }
 }
