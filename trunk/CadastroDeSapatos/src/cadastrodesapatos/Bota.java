@@ -33,7 +33,7 @@ public class Bota extends Sapato{
     @Override
     public String retornaInformacoes(){
         String retorno;
-        retorno = super.retornaInformacoes() +"Solado: " +this.tiposolado +"Altura do Cano: " +this.alturacano;
+        retorno = super.retornaInformacoes() +", Solado: " +this.tiposolado +", Altura do Cano: " +this.alturacano;
         return retorno;
     }
     

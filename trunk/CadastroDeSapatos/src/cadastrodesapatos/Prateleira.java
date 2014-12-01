@@ -15,7 +15,8 @@ import java.util.List;
  */
 public class Prateleira {
     private String nomedaprateleira;
-    private List<Sapato> lista;
+    List <Sapato> lista;
+    
 
     public String getNomedaprateleira() {
         return nomedaprateleira;
@@ -32,24 +33,17 @@ public class Prateleira {
     public void setLista(List<Sapato> lista) {
         this.lista = lista;
     }
+
     public Prateleira(){
         lista = new ArrayList<Sapato>();
     }
     public String mostrarPrateleira(){
-        String saida = "";
-        if(this.nomedaprateleira.equalsIgnoreCase("A")){
-            for (Sapato sapato : lista) {
+        String saida;
+        saida = "Prateleira " +nomedaprateleira + "\nSapatos: \n"; 
+        for (Sapato sapato : lista) {
                 saida = saida +sapato.retornaInformacoes()+ "\n";
-            }
-        }else if(this.nomedaprateleira.equalsIgnoreCase("B")){
-            for (Sapato sapato : lista) {
-                saida = saida +sapato.retornaInformacoes()+ "\n";
-            }
-        }else if(this.nomedaprateleira.equalsIgnoreCase("C")){
-            for (Sapato sapato : lista) {
-                saida = saida +sapato.retornaInformacoes()+ "\n";
-            }
-        }
+               } 
+   
         return saida;
     }
     
