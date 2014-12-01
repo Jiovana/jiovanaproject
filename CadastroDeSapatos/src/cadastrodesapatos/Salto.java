@@ -25,7 +25,7 @@ public class Salto extends Sapato{
     @Override
     public String retornaInformacoes(){
         String retorno;
-        retorno = super.retornaInformacoes() + " Tamanho do Salto: " +this.tamanhosalto;
+        retorno = super.retornaInformacoes() + ", Tamanho do Salto: " +this.tamanhosalto;
         return retorno;
     }
 
