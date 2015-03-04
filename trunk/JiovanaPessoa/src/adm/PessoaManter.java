@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,7 +21,8 @@ public class PessoaManter extends javax.swing.JFrame {
     /**
      * Creates new form PessoaManter
      */
-    List<Pessoa> lista; 
+    private List<Pessoa> lista; 
+    private Integer posicao;
     public PessoaManter() {
         initComponents();
         lista = new ArrayList<Pessoa>();
@@ -65,10 +67,25 @@ public class PessoaManter extends javax.swing.JFrame {
         });
 
         BAnterior.setText("Anterior");
+        BAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BAnteriorActionPerformed(evt);
+            }
+        });
 
         BProximo.setText("Próximo");
+        BProximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BProximoActionPerformed(evt);
+            }
+        });
 
         BUltimo.setText("Ultimo");
+        BUltimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BUltimoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,7 +121,7 @@ public class PessoaManter extends javax.swing.JFrame {
 
         txtnome.setText(" ");
 
-        SCombocaixa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "M", "F", "undefined" }));
+        SCombocaixa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "M", "F" }));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Ação"));
 
@@ -116,10 +133,25 @@ public class PessoaManter extends javax.swing.JFrame {
         });
 
         BExcluir.setText("Excluir");
+        BExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BExcluirActionPerformed(evt);
+            }
+        });
 
         BConsultar.setText("Consultar");
+        BConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BConsultarActionPerformed(evt);
+            }
+        });
 
         BLimpar.setText("Limpar");
+        BLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -203,6 +235,16 @@ public class PessoaManter extends javax.swing.JFrame {
 
     private void BPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BPrimeiroActionPerformed
         // TODO add your handling code here:
+        if(lista.size()>0){
+            Pessoa pessoa = lista.get(0);
+            txtcod.setText(pessoa.getCodigo().toString());
+            txtnome.setText(pessoa.getNome().toString());
+            if(pessoa.getSexo().equals("F")){
+                SCombocaixa.setSelectedIndex(1);
+            }else if(pessoa.getSexo().equals("M")){
+                SCombocaixa.setSelectedIndex(2);
+            }
+        }
     }//GEN-LAST:event_BPrimeiroActionPerformed
 
     private void BCadastraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCadastraActionPerformed
@@ -229,8 +271,99 @@ public class PessoaManter extends javax.swing.JFrame {
            
             
         }
+        Limpar();
         
     }//GEN-LAST:event_BCadastraActionPerformed
+
+    private void BExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BExcluirActionPerformed
+        // TODO add your handling code here:
+        //verifica se o codigo foi informado
+        lista.remove(lista.get(posicao));
+        Limpar();
+    }
+    private void Limpar(){
+        txtcod.setText("");
+        txtnome.setText("");
+        SCombocaixa.setSelectedIndex(0);
+        posicao=0;
+    }//GEN-LAST:event_BExcluirActionPerformed
+
+    private void BAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAnteriorActionPerformed
+        // TODO add your handling code here:
+        if(lista.size()>0){
+            posicao=posicao-1;
+            Pessoa pessoa = lista.get(posicao);
+            txtcod.setText(pessoa.getCodigo().toString());
+            txtnome.setText(pessoa.getNome().toString());
+            if(pessoa.getSexo().equals("F")){
+                SCombocaixa.setSelectedIndex(1);
+            }else if(pessoa.getSexo().equals("M")){
+                SCombocaixa.setSelectedIndex(2);
+            }
+        }
+    }//GEN-LAST:event_BAnteriorActionPerformed
+
+    private void BProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BProximoActionPerformed
+        // TODO add your handling code here:
+        if(posicao<lista.size()-1){
+            posicao = posicao+1;
+            Pessoa pessoa = lista.get(posicao);
+            txtcod.setText(pessoa.getCodigo().toString());
+            txtnome.setText(pessoa.getNome().toString());
+            if(pessoa.getSexo().equals("F")){
+                SCombocaixa.setSelectedIndex(1);
+            }else if(pessoa.getSexo().equals("M")){
+                SCombocaixa.setSelectedIndex(2);
+            }
+        }
+    }//GEN-LAST:event_BProximoActionPerformed
+
+    private void BUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUltimoActionPerformed
+        // TODO add your handling code here:
+        if(lista.size()>0){
+            posicao = lista.size();
+            Pessoa pessoa = lista.get(posicao-1);
+            txtcod.setText(pessoa.getCodigo().toString());
+            txtnome.setText(pessoa.getNome().toString());
+            if(pessoa.getSexo().equals("F")){
+                SCombocaixa.setSelectedIndex(1);
+            }else if(pessoa.getSexo().equals("M")){
+                SCombocaixa.setSelectedIndex(2);
+            }
+        }
+    }//GEN-LAST:event_BUltimoActionPerformed
+
+    private void BConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BConsultarActionPerformed
+        // TODO add your handling code here:
+        String consulta = JOptionPane.showInputDialog("Digite o nome");
+        Integer achou =null;
+        Boolean encontrou=false;
+        if(consulta.isEmpty()==false){
+            for (Pessoa pessoa : lista){
+                if(consulta.equals(pessoa.getNome())){
+                    encontrou=true;
+                    txtnome.setText(pessoa.getNome());
+                    txtcod.setText(pessoa.getCodigo().toString());
+                    if(pessoa.getSexo().equals("F")){
+                        SCombocaixa.setSelectedIndex(1);
+                    }else if(pessoa.getSexo().equals("M")){
+                        SCombocaixa.setSelectedIndex(2);
+                    }
+                    posicao=achou;
+                    break;
+                }
+                achou++;
+            }
+        }
+        if(encontrou==false){
+            JOptionPane.showMessageDialog(rootPane,"Pessoa não encontrada. ");
+        }
+    }//GEN-LAST:event_BConsultarActionPerformed
+
+    private void BLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BLimparActionPerformed
+        // TODO add your handling code here:
+        Limpar();
+    }//GEN-LAST:event_BLimparActionPerformed
 
     /**
      * @param args the command line arguments
