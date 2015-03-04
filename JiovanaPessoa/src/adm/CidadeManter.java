@@ -10,22 +10,23 @@ package adm;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.Pessoa;
+import modelo.Cidade;
+
 
 /**
  *
  * @author Aluno
  */
-public class PessoaManter extends javax.swing.JFrame {
+public class CidadeManter extends javax.swing.JFrame {
 
     /**
      * Creates new form PessoaManter
      */
-    private List<Pessoa> lista; 
+    private List<Cidade> lista; 
     private Integer posicao;
-    public PessoaManter() {
+    public CidadeManter() {
         initComponents();
-        lista = new ArrayList<Pessoa>();
+        lista = new ArrayList<Cidade>();
         
     }
 
@@ -38,19 +39,15 @@ public class PessoaManter extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        BPrimeiro = new javax.swing.JButton();
-        BAnterior = new javax.swing.JButton();
-        BProximo = new javax.swing.JButton();
-        BUltimo = new javax.swing.JButton();
+        bPrimeiro = new javax.swing.JButton();
+        bAnterior = new javax.swing.JButton();
+        bProximo = new javax.swing.JButton();
+        bUltimo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         txtcod = new javax.swing.JTextField();
         txtnome = new javax.swing.JTextField();
-        SCombocaixa = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         BCadastra = new javax.swing.JButton();
         BExcluir = new javax.swing.JButton();
@@ -60,33 +57,33 @@ public class PessoaManter extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Navegação"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Navegação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tempus Sans ITC", 1, 14))); // NOI18N
 
-        BPrimeiro.setText("Primeiro");
-        BPrimeiro.addActionListener(new java.awt.event.ActionListener() {
+        bPrimeiro.setText("Primeiro");
+        bPrimeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BPrimeiroActionPerformed(evt);
+                bPrimeiroActionPerformed(evt);
             }
         });
 
-        BAnterior.setText("Anterior");
-        BAnterior.addActionListener(new java.awt.event.ActionListener() {
+        bAnterior.setText("Anterior");
+        bAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BAnteriorActionPerformed(evt);
+                bAnteriorActionPerformed(evt);
             }
         });
 
-        BProximo.setText("Próximo");
-        BProximo.addActionListener(new java.awt.event.ActionListener() {
+        bProximo.setText("Próximo");
+        bProximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BProximoActionPerformed(evt);
+                bProximoActionPerformed(evt);
             }
         });
 
-        BUltimo.setText("Ultimo");
-        BUltimo.addActionListener(new java.awt.event.ActionListener() {
+        bUltimo.setText("Ultimo");
+        bUltimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BUltimoActionPerformed(evt);
+                bUltimoActionPerformed(evt);
             }
         });
 
@@ -95,38 +92,36 @@ public class PessoaManter extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(BPrimeiro)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bPrimeiro)
                 .addGap(18, 18, 18)
-                .addComponent(BAnterior)
-                .addGap(29, 29, 29)
-                .addComponent(BProximo)
-                .addGap(41, 41, 41)
-                .addComponent(BUltimo)
-                .addGap(22, 22, 22))
+                .addComponent(bAnterior)
+                .addGap(31, 31, 31)
+                .addComponent(bProximo)
+                .addGap(28, 28, 28)
+                .addComponent(bUltimo)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BPrimeiro)
-                    .addComponent(BAnterior)
-                    .addComponent(BProximo)
-                    .addComponent(BUltimo))
+                    .addComponent(bPrimeiro)
+                    .addComponent(bAnterior)
+                    .addComponent(bProximo)
+                    .addComponent(bUltimo))
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jLabel1.setText("Código: ");
 
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jLabel2.setText("Nome: ");
-
-        jLabel3.setText("Sexo: ");
 
         txtnome.setText(" ");
 
-        SCombocaixa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "M", "F" }));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Ação"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Ação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tempus Sans ITC", 1, 14))); // NOI18N
 
         BCadastra.setText("Cadastrar");
         BCadastra.addActionListener(new java.awt.event.ActionListener() {
@@ -165,11 +160,11 @@ public class PessoaManter extends javax.swing.JFrame {
                 .addComponent(BCadastra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(BConsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BLimpar)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,11 +174,11 @@ public class PessoaManter extends javax.swing.JFrame {
                     .addComponent(BExcluir)
                     .addComponent(BConsultar)
                     .addComponent(BLimpar))
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel4.setText(".~.~.Informações da Pessoa.~.~.");
+        jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel4.setText("====Informações da Cidade====");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,102 +187,76 @@ public class PessoaManter extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(SCombocaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtnome))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(13, 13, 13)
                 .addComponent(jLabel4)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(SCombocaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BPrimeiroActionPerformed
+    private void bPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPrimeiroActionPerformed
         // TODO add your handling code here:
         if(lista.size()>0){
-            Pessoa pessoa = lista.get(0);
-            txtcod.setText(pessoa.getCodigo().toString());
-            txtnome.setText(pessoa.getNome().toString());
-            if(pessoa.getSexo().equals("F")){
-                SCombocaixa.setSelectedIndex(1);
-            }else if(pessoa.getSexo().equals("M")){
-                SCombocaixa.setSelectedIndex(2);
-            }
+            Cidade c = lista.get(0);
+            txtcod.setText(c.getCodigo().toString());
+            txtnome.setText(c.getNome());
+            
         }
-    }//GEN-LAST:event_BPrimeiroActionPerformed
+    }//GEN-LAST:event_bPrimeiroActionPerformed
 
     private void BCadastraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCadastraActionPerformed
         // TODO add your handling code here:
-        Pessoa p = new Pessoa();
-        if(txtnome.getText().isEmpty() || txtcod.getText().isEmpty() || SCombocaixa.getSelectedIndex()==0){
+        Cidade c = new Cidade();
+        if(txtnome.getText().isEmpty() || txtcod.getText().isEmpty()){
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
         }else{
             Boolean deu = false;
             try {
-                 p.setCodigo(Integer.parseInt(txtcod.getText()));
+                 c.setCodigo(Integer.parseInt(txtcod.getText()));
                  deu = true;
             } catch (Exception e) {
                 deu = false;
                 JOptionPane.showMessageDialog(rootPane, "Código apenas númericos");
             }
             if(deu==true){
-                p.setNome(txtnome.getText());
-                p.setSexo(SCombocaixa.getSelectedItem().toString());
-                lista.add(p);
-        
+                c.setNome(txtnome.getText());
+                lista.add(c);
                 JOptionPane.showMessageDialog(this, "Cadastrado");
+                 Limpar();
             }
-           
-            
         }
-        Limpar();
+       
         
     }//GEN-LAST:event_BCadastraActionPerformed
 
@@ -300,79 +269,59 @@ public class PessoaManter extends javax.swing.JFrame {
     private void Limpar(){
         txtcod.setText("");
         txtnome.setText("");
-        SCombocaixa.setSelectedIndex(0);
         posicao=0;
     }//GEN-LAST:event_BExcluirActionPerformed
 
-    private void BAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAnteriorActionPerformed
+    private void bAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnteriorActionPerformed
         // TODO add your handling code here:
         if(lista.size()>0){
             posicao=posicao-1;
-            Pessoa pessoa = lista.get(posicao);
-            txtcod.setText(pessoa.getCodigo().toString());
-            txtnome.setText(pessoa.getNome().toString());
-            if(pessoa.getSexo().equals("F")){
-                SCombocaixa.setSelectedIndex(1);
-            }else if(pessoa.getSexo().equals("M")){
-                SCombocaixa.setSelectedIndex(2);
-            }
+            Cidade c = lista.get(posicao);
+            txtcod.setText(c.getCodigo().toString());
+            txtnome.setText(c.getNome());   
         }
-    }//GEN-LAST:event_BAnteriorActionPerformed
+    }//GEN-LAST:event_bAnteriorActionPerformed
 
-    private void BProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BProximoActionPerformed
+    private void bProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProximoActionPerformed
         // TODO add your handling code here:
         if(posicao<lista.size()-1){
             posicao = posicao+1;
-            Pessoa pessoa = lista.get(posicao);
-            txtcod.setText(pessoa.getCodigo().toString());
-            txtnome.setText(pessoa.getNome().toString());
-            if(pessoa.getSexo().equals("F")){
-                SCombocaixa.setSelectedIndex(1);
-            }else if(pessoa.getSexo().equals("M")){
-                SCombocaixa.setSelectedIndex(2);
-            }
+            Cidade c = lista.get(posicao);
+            txtcod.setText(c.getCodigo().toString());
+            txtnome.setText(c.getNome());   
         }
-    }//GEN-LAST:event_BProximoActionPerformed
+    }//GEN-LAST:event_bProximoActionPerformed
 
-    private void BUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUltimoActionPerformed
+    private void bUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUltimoActionPerformed
         // TODO add your handling code here:
         if(lista.size()>0){
             posicao = lista.size();
-            Pessoa pessoa = lista.get(posicao-1);
-            txtcod.setText(pessoa.getCodigo().toString());
-            txtnome.setText(pessoa.getNome().toString());
-            if(pessoa.getSexo().equals("F")){
-                SCombocaixa.setSelectedIndex(1);
-            }else if(pessoa.getSexo().equals("M")){
-                SCombocaixa.setSelectedIndex(2);
-            }
+            Cidade c = lista.get(posicao-1);
+            txtcod.setText(c.getCodigo().toString());
+            txtnome.setText(c.getNome());   
         }
-    }//GEN-LAST:event_BUltimoActionPerformed
+    }//GEN-LAST:event_bUltimoActionPerformed
 
     private void BConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BConsultarActionPerformed
         // TODO add your handling code here:
         String consulta = JOptionPane.showInputDialog("Digite o nome");
-        Integer achou =null;
+        Integer achou =0;
         Boolean encontrou=false;
-        if(consulta.isEmpty()==false){
-            for (Pessoa pessoa : lista){
-                if(consulta.equals(pessoa.getNome())){
+            for (Cidade c : lista){
+                if(consulta.equals(c.getNome())){
                     encontrou=true;
-                    txtnome.setText(pessoa.getNome());
-                    txtcod.setText(pessoa.getCodigo().toString());
-                    if(pessoa.getSexo().equals("F")){
-                        SCombocaixa.setSelectedIndex(1);
-                    }else if(pessoa.getSexo().equals("M")){
-                        SCombocaixa.setSelectedIndex(2);
-                    }
+                    txtnome.setText(c.getNome());
+                    txtcod.setText(c.getCodigo().toString());
                     posicao=achou;
                     break;
                 }
                 achou++;
             }
-        }
+        
         if(encontrou==false){
-            JOptionPane.showMessageDialog(rootPane,"Pessoa não encontrada. ");
+            JOptionPane.showMessageDialog(rootPane,"Cidade não encontrada. ");
+        }else{
+            JOptionPane.showMessageDialog(rootPane,"Cidade encontrada! ");
         }
     }//GEN-LAST:event_BConsultarActionPerformed
 
@@ -398,39 +347,35 @@ public class PessoaManter extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PessoaManter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CidadeManter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PessoaManter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CidadeManter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PessoaManter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CidadeManter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PessoaManter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CidadeManter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PessoaManter().setVisible(true);
+                new CidadeManter().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BAnterior;
     private javax.swing.JButton BCadastra;
     private javax.swing.JButton BConsultar;
     private javax.swing.JButton BExcluir;
     private javax.swing.JButton BLimpar;
-    private javax.swing.JButton BPrimeiro;
-    private javax.swing.JButton BProximo;
-    private javax.swing.JButton BUltimo;
-    private javax.swing.JComboBox SCombocaixa;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton bAnterior;
+    private javax.swing.JButton bPrimeiro;
+    private javax.swing.JButton bProximo;
+    private javax.swing.JButton bUltimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
