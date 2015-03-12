@@ -310,7 +310,7 @@ public class PessoaManter extends javax.swing.JFrame {
             posicao=posicao-1;
             Pessoa pessoa = lista.get(posicao);
             txtcod.setText(pessoa.getCodigo().toString());
-            txtnome.setText(pessoa.getNome().toString());
+            txtnome.setText(pessoa.getNome());
             if(pessoa.getSexo().equals("F")){
                 SCombocaixa.setSelectedIndex(1);
             }else if(pessoa.getSexo().equals("M")){
@@ -325,7 +325,7 @@ public class PessoaManter extends javax.swing.JFrame {
             posicao = posicao+1;
             Pessoa pessoa = lista.get(posicao);
             txtcod.setText(pessoa.getCodigo().toString());
-            txtnome.setText(pessoa.getNome().toString());
+            txtnome.setText(pessoa.getNome());
             if(pessoa.getSexo().equals("F")){
                 SCombocaixa.setSelectedIndex(1);
             }else if(pessoa.getSexo().equals("M")){
@@ -340,7 +340,7 @@ public class PessoaManter extends javax.swing.JFrame {
             posicao = lista.size();
             Pessoa pessoa = lista.get(posicao-1);
             txtcod.setText(pessoa.getCodigo().toString());
-            txtnome.setText(pessoa.getNome().toString());
+            txtnome.setText(pessoa.getNome());
             if(pessoa.getSexo().equals("F")){
                 SCombocaixa.setSelectedIndex(1);
             }else if(pessoa.getSexo().equals("M")){
