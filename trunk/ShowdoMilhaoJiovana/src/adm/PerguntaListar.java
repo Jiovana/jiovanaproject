@@ -6,6 +6,11 @@
 
 package adm;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import modelo.Pergunta;
+
 /**
  *
  * @author Jiovana
@@ -17,6 +22,69 @@ public class PerguntaListar extends javax.swing.JFrame {
      */
     public PerguntaListar() {
         initComponents();
+        List<Pergunta> perguntas = new ArrayList<>();
+        
+        Pergunta p1 = new Pergunta();
+        p1.setId(1);
+        p1.setEnunciado("Aranhas tem quantas pernas?");
+        p1.setA("4");
+        p1.setB("6");
+        p1.setC("8");
+        p1.setD("10");
+        p1.setCerta("C");
+        p1.setNivel(1);
+        perguntas.add(p1);
+        
+        Pergunta p2 = new Pergunta();
+        p2.setId(2);
+        p2.setEnunciado("Em que continente fica  a Malasia?");
+        p2.setA("Oceania");
+        p2.setB("Ásia");
+        p2.setC("África");
+        p2.setD("Europa");
+        p2.setCerta("B");
+        p2.setNivel(1);
+        perguntas.add(p2);
+        
+        Pergunta p3 = new Pergunta();
+        p3.setId(3);
+        p3.setEnunciado("Qual dessas frutas não tem caroço?");
+        p3.setA("Pessego");
+        p3.setB("Abacate");
+        p3.setC("Pitanga");
+        p3.setD("Goiaba");
+        p3.setCerta("D");
+        p3.setNivel(1);
+        perguntas.add(p3);
+        
+        Pergunta p4 = new Pergunta();
+        p4.setId(4);
+        p4.setEnunciado("Quantos são os planetas do sistema solar?");
+        p4.setA("7");
+        p4.setB("8");
+        p4.setC("9");
+        p4.setD("10");
+        p4.setCerta("B");
+        p4.setNivel(1);
+        perguntas.add(p4);
+                
+        DefaultTableModel modelo  = (DefaultTableModel)tabela.getModel();
+        Object[] linha = new Object[modelo.getColumnCount()];
+        
+        for (Pergunta item : perguntas) {
+            linha[0] = item.getEnunciado();
+            linha[1] = item.getA();
+            linha[2] = item.getB();
+            linha[3] = item.getC();
+            linha[4] = item.getD();
+            linha[5] = item.getCerta();
+            linha[6] = item.getId();
+            linha[7] = item.getNivel();
+            modelo.addRow(linha);
+        }
+        
+        
+    
     }
 
     /**
@@ -28,17 +96,71 @@ public class PerguntaListar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabela = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 5, true), "Lista de Perguntas Cadastradas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Snap ITC", 0, 14), new java.awt.Color(0, 0, 153))); // NOI18N
+
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Enunciado", "A", "B", "C", "D", "Certa", "Id", "Nivel"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabela);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -80,5 +202,8 @@ public class PerguntaListar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }
