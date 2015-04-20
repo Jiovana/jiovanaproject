@@ -6,7 +6,7 @@
 
 package adm;
 
-import java.util.ArrayList;
+import DAO.CidadeDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cidade;
@@ -22,39 +22,10 @@ public class CidadeListar extends javax.swing.JFrame {
      */
     public CidadeListar() {
         initComponents();
-        List<Cidade> cidades = new ArrayList<Cidade>();
-        
-        Cidade c = new Cidade();
-        c.setCodigo(1);
-        c.setNome("Bagé");
-        cidades.add(c);
-        
-        c = new Cidade();
-        c.setCodigo(2);
-        c.setNome("Pelotas");
-        cidades.add(c);
-        
-        c = new Cidade();
-        c.setCodigo(3);
-        c.setNome("Candiota");
-        cidades.add(c);
-        
-        c = new Cidade();
-        c.setCodigo(4);
-        c.setNome("Aceguá");
-        cidades.add(c);
-        
-        c = new Cidade();
-        c.setCodigo(5);
-        c.setNome("Dom Pedrito");
-        cidades.add(c);
-        
-        c = new Cidade();
-        c.setCodigo(6);
-        c.setNome("Santa Maria");
-        cidades.add(c);
-        
-        DefaultTableModel modelo = (DefaultTableModel)tabelac.getModel();
+        CidadeDAO dao = new CidadeDAO();
+        List<Cidade> cidades = dao.listar();
+                
+        DefaultTableModel modelo  = (DefaultTableModel)tabelac.getModel();
         Object[] linha = new Object[modelo.getColumnCount()];
         
         for (Cidade item : cidades) {
@@ -62,7 +33,6 @@ public class CidadeListar extends javax.swing.JFrame {
             linha[1] = item.getNome();
             modelo.addRow(linha);
         }
-        
     }
 
     /**

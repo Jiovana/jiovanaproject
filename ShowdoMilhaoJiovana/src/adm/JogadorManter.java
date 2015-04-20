@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package adm;
 
-
-import java.util.ArrayList;
+import DAO.JogadorDAO;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Jogador;
@@ -21,11 +19,15 @@ public class JogadorManter extends javax.swing.JFrame {
     /**
      * Creates new form JogadorCadastrar
      */
-    private final List<Jogador> lista;
+    private List<Jogador> lista;
     private Integer posicao;
+
     public JogadorManter() {
         initComponents();
-        lista = new ArrayList<>();
+        //buscar lista no banco
+        JogadorDAO dao = new JogadorDAO();
+        lista = dao.listar();
+        posicao=0;
     }
 
     /**
@@ -268,9 +270,9 @@ public class JogadorManter extends javax.swing.JFrame {
 
     private void bultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bultimoActionPerformed
         // TODO add your handling code here:
-        if(lista.size()>0){
-            posicao=lista.size();
-            Jogador j = lista.get(posicao-1);
+        if (lista.size() > 0) {
+            posicao = lista.size();
+            Jogador j = lista.get(posicao - 1);
             txtlogin.setText(j.getLogin());
             txtsenha.setText(j.getSenha());
             txtemail.setText(j.getEmail());
@@ -280,30 +282,55 @@ public class JogadorManter extends javax.swing.JFrame {
     private void bcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcadastrarActionPerformed
         // TODO add your handling code here:
         Jogador j = new Jogador();
-        if(txtlogin.getText().isEmpty() || txtsenha.getText().isEmpty() || txtemail.getText().isEmpty()){
+        if (txtlogin.getText().isEmpty() || txtsenha.getText().isEmpty() || txtemail.getText().isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
-        }else{
+        } else {
             j.setLogin(txtlogin.getText());
             j.setSenha(txtsenha.getText());
             j.setEmail(txtemail.getText());
-            lista.add(j);
-            JOptionPane.showMessageDialog(this, "Cadastrado");
+            //instancia a classe de acesso a dados jogadorDAO
+            JogadorDAO dao = new JogadorDAO();
+            //chama o inserir
+            boolean deucerto = dao.inserir(j);
+            if (deucerto == true) {
+                JOptionPane.showMessageDialog(rootPane, "Cadastrado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar!");
             }
-           
+            lista.add(j);
+            posicao ++;
             Limpar();
+        }
+
+        
     }
-    private void Limpar(){
-        posicao=0;
+
+    private void Limpar() {
+        posicao = 0;
         txtlogin.setText("");
         txtsenha.setText("");
         txtemail.setText("");
-        
+
     }//GEN-LAST:event_bcadastrarActionPerformed
 
     private void bexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexcluirActionPerformed
         // TODO add your handling code here:
-        lista.remove(lista.get(posicao));
-        Limpar();
+        //chave primaria informada
+        if(txtlogin.getText().isEmpty()==false){
+            JogadorDAO dao = new JogadorDAO();
+            boolean deucerto = dao.excluir(lista.get(posicao));
+            if(deucerto==true){
+                JOptionPane.showMessageDialog(rootPane,"Excluido com sucesso");
+                 //atualiza a lista sem jogador excluido
+                lista = dao.listar();
+                Limpar();    
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Erro ao excluir");
+            }     
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Login não informado");
+        }      
     }//GEN-LAST:event_bexcluirActionPerformed
 
     private void blimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blimparActionPerformed
@@ -314,29 +341,29 @@ public class JogadorManter extends javax.swing.JFrame {
     private void bconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bconsultarActionPerformed
         // TODO add your handling code here:
         String consulta = JOptionPane.showInputDialog("Digite o login do jogador: ");
-        Integer achou=0;
-        Boolean encontrou=false;
-        if(consulta.isEmpty()==false){
-            for (Jogador jogador : lista){
-                if(consulta.equals(jogador.getLogin())){
-                    encontrou=true;
+        Integer achou = 0;
+        Boolean encontrou = false;
+        if (consulta.isEmpty() == false) {
+            for (Jogador jogador : lista) {
+                if (consulta.equals(jogador.getLogin())) {
+                    encontrou = true;
                     txtlogin.setText(jogador.getLogin());
                     txtsenha.setText(jogador.getSenha());
                     txtemail.setText(jogador.getEmail());
-                    posicao=achou;
+                    posicao = achou;
                     break;
                 }
                 achou++;
             }
         }
-        if(encontrou==false){
-            JOptionPane.showMessageDialog(rootPane,"Jogador não encontrado. ");
+        if (encontrou == false) {
+            JOptionPane.showMessageDialog(rootPane, "Jogador não encontrado. ");
         }
     }//GEN-LAST:event_bconsultarActionPerformed
 
     private void bprimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bprimeiroActionPerformed
         // TODO add your handling code here:
-        if(lista.size()>0){
+        if (lista.size() > 0) {
             Jogador j = lista.get(0);
             txtlogin.setText(j.getLogin());
             txtsenha.setText(j.getSenha());
@@ -346,8 +373,8 @@ public class JogadorManter extends javax.swing.JFrame {
 
     private void banteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_banteriorActionPerformed
         // TODO add your handling code here:
-        if(lista.size()>0){
-            posicao=posicao-1;
+        if (lista.size() > 0) {
+            posicao = posicao - 1;
             Jogador j = lista.get(posicao);
             txtlogin.setText(j.getLogin());
             txtsenha.setText(j.getSenha());
@@ -357,8 +384,8 @@ public class JogadorManter extends javax.swing.JFrame {
 
     private void bproximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bproximoActionPerformed
         // TODO add your handling code here:
-        if(posicao<lista.size()-1){
-            posicao=posicao+1;
+        if (posicao < lista.size() - 1) {
+            posicao = posicao + 1;
             Jogador j = lista.get(posicao);
             txtlogin.setText(j.getLogin());
             txtsenha.setText(j.getSenha());

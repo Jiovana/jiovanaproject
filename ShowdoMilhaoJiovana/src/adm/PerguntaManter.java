@@ -6,7 +6,7 @@
 
 package adm;
 
-import java.util.ArrayList;
+import DAO.PerguntaDAO;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Pergunta;
@@ -24,7 +24,9 @@ public class PerguntaManter extends javax.swing.JFrame {
     private Integer posicao;
     public PerguntaManter() {
         initComponents();
-        lista = new ArrayList<Pergunta>();
+        PerguntaDAO dao = new PerguntaDAO();
+        lista = dao.listar();
+        posicao = 0;
     }
 
     /**
@@ -241,6 +243,14 @@ public class PerguntaManter extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setText("Nível:");
 
+        txtid.setEditable(false);
+        txtid.setFocusCycleRoot(true);
+        txtid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidActionPerformed(evt);
+            }
+        });
+
         caixacerta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "a", "b", "c", "d" }));
 
         caixanivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
@@ -284,8 +294,8 @@ public class PerguntaManter extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(114, 114, 114)
+                                .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(111, 111, 111)
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(caixanivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -415,34 +425,27 @@ public class PerguntaManter extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pergunta p = new Pergunta();
         if(txtenunciado.getText().isEmpty() || txta.getText().isEmpty() || txtb.getText().isEmpty() || txtc.getText().isEmpty()
-        || txtd.getText().isEmpty() || txtid.getText().isEmpty() || caixacerta.getSelectedIndex()==0 ||  caixanivel.getSelectedIndex()==0){
-        JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
+        || txtd.getText().isEmpty() || caixacerta.getSelectedIndex()==0 ||  caixanivel.getSelectedIndex()==0){
+                JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
         }else{
-            Boolean deu = false;
-            try {
-                 p.setId(Integer.parseInt(txtid.getText()));
-                 deu = true;
-            } catch (Exception e) {
-                deu = false;
-                JOptionPane.showMessageDialog(rootPane, "Código apenas númericos");
-            }
-            if(deu==true){
                 p.setEnunciado(txtenunciado.getText());
                 p.setA(txta.getText());
                 p.setB(txtb.getText());
                 p.setC(txtc.getText());
                 p.setD(txtd.getText());
-                p.setId(Integer.parseInt(txtid.getText()));
                 p.setCerta(caixacerta.getSelectedItem().toString());
                 p.setNivel(Integer.parseInt(caixanivel.getSelectedItem().toString()));
-                JOptionPane.showMessageDialog(this, "Pergunta cadastrada");
+                PerguntaDAO dao = new PerguntaDAO();
+                boolean deucerto = dao.inserir(p);
+                if (deucerto == true) {
+                JOptionPane.showMessageDialog(rootPane, "Cadastrado com sucesso!");
+                 } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar!");
+                }
                 lista.add(p);
-            }
-           
-            
-        }
-        Limpar();
-        
+                posicao++;
+                Limpar();
+            }    
     }
     public void Limpar(){
         txtenunciado.setText("");
@@ -465,8 +468,17 @@ public class PerguntaManter extends javax.swing.JFrame {
 
     private void botaoEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEActionPerformed
         // TODO add your handling code here:
-        lista.remove(lista.get(posicao));
-        Limpar();
+            PerguntaDAO dao = new PerguntaDAO();
+            boolean deucerto = dao.excluir(lista.get(posicao));
+            if(deucerto==true){
+                JOptionPane.showMessageDialog(rootPane,"Excluido com sucesso");
+                 //atualiza a lista sem jogador excluido
+                lista = dao.listar();
+                Limpar();    
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Erro ao excluir");
+            }     
     }//GEN-LAST:event_botaoEActionPerformed
 
     private void botaoConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConActionPerformed
@@ -589,6 +601,10 @@ public class PerguntaManter extends javax.swing.JFrame {
            
         }
     }//GEN-LAST:event_botaoUActionPerformed
+
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,7 +6,7 @@
 
 package adm;
 
-import java.util.ArrayList;
+import DAO.PerguntaDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import modelo.Pergunta;
@@ -22,51 +22,9 @@ public class PerguntaListar extends javax.swing.JFrame {
      */
     public PerguntaListar() {
         initComponents();
-        List<Pergunta> perguntas = new ArrayList<>();
+        PerguntaDAO dao = new PerguntaDAO();
+        List<Pergunta> perguntas = dao.listar();
         
-        Pergunta p1 = new Pergunta();
-        p1.setId(1);
-        p1.setEnunciado("Aranhas tem quantas pernas?");
-        p1.setA("4");
-        p1.setB("6");
-        p1.setC("8");
-        p1.setD("10");
-        p1.setCerta("C");
-        p1.setNivel(1);
-        perguntas.add(p1);
-        
-        Pergunta p2 = new Pergunta();
-        p2.setId(2);
-        p2.setEnunciado("Em que continente fica  a Malasia?");
-        p2.setA("Oceania");
-        p2.setB("Ásia");
-        p2.setC("África");
-        p2.setD("Europa");
-        p2.setCerta("B");
-        p2.setNivel(1);
-        perguntas.add(p2);
-        
-        Pergunta p3 = new Pergunta();
-        p3.setId(3);
-        p3.setEnunciado("Qual dessas frutas não tem caroço?");
-        p3.setA("Pessego");
-        p3.setB("Abacate");
-        p3.setC("Pitanga");
-        p3.setD("Goiaba");
-        p3.setCerta("D");
-        p3.setNivel(1);
-        perguntas.add(p3);
-        
-        Pergunta p4 = new Pergunta();
-        p4.setId(4);
-        p4.setEnunciado("Quantos são os planetas do sistema solar?");
-        p4.setA("7");
-        p4.setB("8");
-        p4.setC("9");
-        p4.setD("10");
-        p4.setCerta("B");
-        p4.setNivel(1);
-        perguntas.add(p4);
                 
         DefaultTableModel modelo  = (DefaultTableModel)tabela.getModel();
         Object[] linha = new Object[modelo.getColumnCount()];

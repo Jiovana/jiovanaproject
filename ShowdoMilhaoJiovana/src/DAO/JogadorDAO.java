@@ -6,6 +6,7 @@
 //objeto de acesso a dados = dao
 package DAO;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ public class JogadorDAO {
 
     public Boolean inserir(Jogador jogador) {
         Boolean retorno;
-        String sql = "INSERT INT jogador(login,senha,email)" + "VALUES(?,?,?)";
+        String sql = "INSERT INTO jogador(login,senha,email)" + "VALUES(?,?,?)";
         //prepara conexao
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
@@ -64,6 +65,26 @@ public class JogadorDAO {
             Logger.getLogger(JogadorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
+    }
+    public Boolean excluir(Jogador jogador) {
+        Boolean retorno;
+        //monta sl e inseren na tabela
+        String sql = "DELETE FROM jogador WHERE login=?";
+        //prepara conexao
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+            //insere parametros
+            pst.setString(1, jogador.getLogin());
+            
+            //executa sql no banco
+            pst.executeUpdate();
+            retorno = true;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
     }
 
 }

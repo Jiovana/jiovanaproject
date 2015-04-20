@@ -6,7 +6,7 @@
 
 package adm;
 
-import java.util.ArrayList;
+import DAO.PessoaDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import modelo.Pessoa;
@@ -22,43 +22,8 @@ public class PessoaLista extends javax.swing.JFrame {
      */
     public PessoaLista() {
         initComponents();
-        List<Pessoa> pessoas = new ArrayList<Pessoa>();
-        
-        Pessoa p1 = new Pessoa();
-        p1.setCodigo(1);
-        p1.setNome("Josefa");
-        p1.setSexo("F");
-        pessoas.add(p1);
-        
-        Pessoa p2 = new Pessoa();
-        p2.setCodigo(2);
-        p2.setNome("Henrique");
-        p2.setSexo("M");
-        pessoas.add(p2);
-        
-        Pessoa p3 = new Pessoa();
-        p3.setCodigo(3);
-        p3.setNome("Daniela");
-        p3.setSexo("F");
-        pessoas.add(p3);
-        
-        Pessoa p4 = new Pessoa();
-        p4.setCodigo(4);
-        p4.setNome("Carlos");
-        p4.setSexo("M");
-        pessoas.add(p4);
-        
-        Pessoa p5 = new Pessoa();
-        p5.setCodigo(5);
-        p5.setNome("Bianca");
-        p5.setSexo("F");
-        pessoas.add(p5);
-        
-        Pessoa p6 = new Pessoa();
-        p6.setCodigo(6);
-        p6.setNome("Gustavo");
-        p6.setSexo("M");
-        pessoas.add(p6);
+        PessoaDAO dao = new PessoaDAO();
+        List<Pessoa> pessoas = dao.listar();
                 
         DefaultTableModel modelo  = (DefaultTableModel)tabelap.getModel();
         Object[] linha = new Object[modelo.getColumnCount()];
@@ -69,8 +34,6 @@ public class PessoaLista extends javax.swing.JFrame {
             linha[2] = item.getSexo();
             modelo.addRow(linha);
         }
-        
-        
     }
 
     /**

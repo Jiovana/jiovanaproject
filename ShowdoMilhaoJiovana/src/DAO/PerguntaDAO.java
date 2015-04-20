@@ -6,6 +6,7 @@
 //objeto de acesso a dados = dao
 package DAO;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,10 +35,10 @@ public class PerguntaDAO {
             pst.setString(1, pergunta.getEnunciado());
             pst.setString(2, pergunta.getA());
             pst.setString(3, pergunta.getB());
-            pst.setString(3, pergunta.getC());
-            pst.setString(3, pergunta.getD());
-            pst.setString(3, pergunta.getCerta());
-            pst.setString(3, pergunta.getNivel().toString());
+            pst.setString(4, pergunta.getC());
+            pst.setString(5, pergunta.getD());
+            pst.setString(6, pergunta.getCerta());
+            pst.setString(7, pergunta.getNivel().toString());
             //executa sql no banco
             pst.executeUpdate();
             retorno = true;
@@ -74,6 +75,25 @@ public class PerguntaDAO {
             Logger.getLogger(PerguntaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
+    }
+    public Boolean excluir(Pergunta pergunta) {
+        Boolean retorno;
+        //monta sl e inseren na tabela
+        String sql = "DELETE FROM pergunta WHERE id=?";
+        //prepara conexao
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+            //insere parametros
+            pst.setString(1, pergunta.getId().toString());
+            //executa sql no banco
+            pst.executeUpdate();
+            retorno = true;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
     }
 
 }

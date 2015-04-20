@@ -7,7 +7,7 @@
 
 package adm;
 
-import java.util.ArrayList;
+import DAO.CidadeDAO;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Cidade;
@@ -26,7 +26,9 @@ public class CidadeManter extends javax.swing.JFrame {
     private Integer posicao;
     public CidadeManter() {
         initComponents();
-        lista = new ArrayList<Cidade>();
+        CidadeDAO dao = new CidadeDAO();
+        lista = dao.listar();
+        posicao = 0;
         
     }
 
@@ -39,6 +41,7 @@ public class CidadeManter extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         bPrimeiro = new javax.swing.JButton();
         bAnterior = new javax.swing.JButton();
@@ -54,6 +57,7 @@ public class CidadeManter extends javax.swing.JFrame {
         BConsultar = new javax.swing.JButton();
         BLimpar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnListagem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,6 +123,8 @@ public class CidadeManter extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jLabel2.setText("Nome: ");
 
+        txtcod.setEditable(false);
+
         txtnome.setText(" ");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Ação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tempus Sans ITC", 1, 14))); // NOI18N
@@ -180,6 +186,13 @@ public class CidadeManter extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         jLabel4.setText("====Informações da Cidade====");
 
+        btnListagem.setText("Ir para Lista");
+        btnListagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListagemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,21 +208,24 @@ public class CidadeManter extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtnome))
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(btnListagem)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -217,9 +233,11 @@ public class CidadeManter extends javax.swing.JFrame {
                     .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnListagem)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,33 +256,39 @@ public class CidadeManter extends javax.swing.JFrame {
     private void BCadastraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCadastraActionPerformed
         // TODO add your handling code here:
         Cidade c = new Cidade();
-        if(txtnome.getText().isEmpty() || txtcod.getText().isEmpty()){
+        if(txtnome.getText().isEmpty()){
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
         }else{
-            Boolean deu = false;
-            try {
-                 c.setCodigo(Integer.parseInt(txtcod.getText()));
-                 deu = true;
-            } catch (Exception e) {
-                deu = false;
-                JOptionPane.showMessageDialog(rootPane, "Código apenas númericos");
+            c.setNome(txtnome.getText());
+            //intancia a classe de acesso a dados CidadeDAO
+            CidadeDAO dao = new CidadeDAO();
+            //chama o inserir
+            boolean deucerto = dao.inserir(c);
+            if (deucerto == true) {
+                JOptionPane.showMessageDialog(rootPane, "Cadastrado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar!");
             }
-            if(deu==true){
-                c.setNome(txtnome.getText());
-                lista.add(c);
-                JOptionPane.showMessageDialog(this, "Cadastrado");
-                 Limpar();
+            lista.add(c);
+            posicao ++;
+            Limpar();
             }
-        }
        
         
     }//GEN-LAST:event_BCadastraActionPerformed
 
     private void BExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BExcluirActionPerformed
-        // TODO add your handling code here:
-        //verifica se o codigo foi informado
-        lista.remove(lista.get(posicao));
-        Limpar();
+            CidadeDAO dao = new CidadeDAO();
+            boolean deucerto = dao.excluir(lista.get(posicao));
+            if(deucerto==true){
+                JOptionPane.showMessageDialog(rootPane,"Excluido com sucesso");
+                 //atualiza a lista sem cidade excluida
+                lista = dao.listar();
+                Limpar();    
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Erro ao excluir");
+            }     
     }
     private void Limpar(){
         txtcod.setText("");
@@ -304,24 +328,23 @@ public class CidadeManter extends javax.swing.JFrame {
 
     private void BConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BConsultarActionPerformed
         // TODO add your handling code here:
-        String consulta = JOptionPane.showInputDialog("Digite o nome");
-        Integer achou =0;
-        Boolean encontrou=false;
-            for (Cidade c : lista){
-                if(consulta.equals(c.getNome())){
-                    encontrou=true;
-                    txtnome.setText(c.getNome());
+        Integer consulta = Integer.parseInt(JOptionPane.showInputDialog("Digite o código da cidade: "));
+        Integer achou = 0;
+        Boolean encontrou = false;
+        if (consulta != 0) {
+            for (Cidade c : lista) {
+                if (consulta == c.getCodigo()) {
+                    encontrou = true;
                     txtcod.setText(c.getCodigo().toString());
-                    posicao=achou;
+                    txtnome.setText(c.getNome());
+                    posicao = achou;
                     break;
                 }
                 achou++;
             }
-        
-        if(encontrou==false){
-            JOptionPane.showMessageDialog(rootPane,"Cidade não encontrada. ");
-        }else{
-            JOptionPane.showMessageDialog(rootPane,"Cidade encontrada! ");
+        }
+        if (encontrou == false) {
+            JOptionPane.showMessageDialog(rootPane, "Cidade não encontrada.");
         }
     }//GEN-LAST:event_BConsultarActionPerformed
 
@@ -329,6 +352,13 @@ public class CidadeManter extends javax.swing.JFrame {
         // TODO add your handling code here:
         Limpar();
     }//GEN-LAST:event_BLimparActionPerformed
+
+    private void btnListagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListagemActionPerformed
+        // TODO add your handling code here:
+        CidadeListar listax = new CidadeListar();
+        listax.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnListagemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,6 +404,8 @@ public class CidadeManter extends javax.swing.JFrame {
     private javax.swing.JButton bPrimeiro;
     private javax.swing.JButton bProximo;
     private javax.swing.JButton bUltimo;
+    private javax.swing.JButton btnListagem;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

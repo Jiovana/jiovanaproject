@@ -69,8 +69,8 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtid" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                              <Component id="txtid" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="caixanivel" min="-2" max="-2" attributes="0"/>
@@ -477,6 +477,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtid">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="focusCycleRoot" type="boolean" value="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtidActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtenunciado">
     </Component>

@@ -7,7 +7,7 @@
 
 package adm;
 
-import java.util.ArrayList;
+import DAO.PessoaDAO;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Pessoa;
@@ -25,8 +25,9 @@ public class PessoaManter extends javax.swing.JFrame {
     private Integer posicao;
     public PessoaManter() {
         initComponents();
-        lista = new ArrayList<Pessoa>();
-        
+        PessoaDAO dao = new PessoaDAO();
+        lista = dao.listar();
+        posicao = 0;   
     }
 
     /**
@@ -57,6 +58,7 @@ public class PessoaManter extends javax.swing.JFrame {
         BConsultar = new javax.swing.JButton();
         BLimpar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnListagem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,7 +97,7 @@ public class PessoaManter extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(BPrimeiro)
                 .addGap(18, 18, 18)
                 .addComponent(BAnterior)
@@ -121,6 +123,8 @@ public class PessoaManter extends javax.swing.JFrame {
         jLabel2.setText("Nome: ");
 
         jLabel3.setText("Sexo: ");
+
+        txtcod.setEditable(false);
 
         txtnome.setText(" ");
 
@@ -179,11 +183,18 @@ public class PessoaManter extends javax.swing.JFrame {
                     .addComponent(BExcluir)
                     .addComponent(BConsultar)
                     .addComponent(BLimpar))
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel4.setText(".~.~.Informações da Pessoa.~.~.");
+
+        btnListagem.setText("Ir para Lista");
+        btnListagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListagemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,31 +206,35 @@ public class PessoaManter extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(SCombocaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtnome))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(73, 73, 73)
+                                                .addComponent(jLabel3)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(SCombocaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(16, 16, 16)
+                                                .addComponent(jLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtnome))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(jLabel4)))
+                        .addGap(14, 14, 14)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jLabel4)
+                .addGap(169, 169, 169)
+                .addComponent(btnListagem)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -232,18 +247,18 @@ public class PessoaManter extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(SCombocaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnListagem)
+                .addContainerGap())
         );
 
         pack();
@@ -254,7 +269,7 @@ public class PessoaManter extends javax.swing.JFrame {
         if(lista.size()>0){
             Pessoa pessoa = lista.get(0);
             txtcod.setText(pessoa.getCodigo().toString());
-            txtnome.setText(pessoa.getNome().toString());
+            txtnome.setText(pessoa.getNome());
             if(pessoa.getSexo().equals("F")){
                 SCombocaixa.setSelectedIndex(1);
             }else if(pessoa.getSexo().equals("M")){
@@ -266,37 +281,40 @@ public class PessoaManter extends javax.swing.JFrame {
     private void BCadastraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCadastraActionPerformed
         // TODO add your handling code here:
         Pessoa p = new Pessoa();
-        if(txtnome.getText().isEmpty() || txtcod.getText().isEmpty() || SCombocaixa.getSelectedIndex()==0){
+        if(txtnome.getText().isEmpty() || SCombocaixa.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
         }else{
-            Boolean deu = false;
-            try {
-                 p.setCodigo(Integer.parseInt(txtcod.getText()));
-                 deu = true;
-            } catch (Exception e) {
-                deu = false;
-                JOptionPane.showMessageDialog(rootPane, "Código apenas númericos");
+            p.setNome(txtnome.getText());
+            p.setSexo(SCombocaixa.getSelectedItem().toString());
+            //intancia a classe de acesso a dados PessoaDAO
+            PessoaDAO dao = new PessoaDAO();
+            //chama o inserir
+            boolean deucerto = dao.inserir(p);
+            if (deucerto == true) {
+                JOptionPane.showMessageDialog(rootPane, "Cadastrado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao cadastrar!");
             }
-            if(deu==true){
-                p.setNome(txtnome.getText());
-                p.setSexo(SCombocaixa.getSelectedItem().toString());
-                lista.add(p);
-        
-                JOptionPane.showMessageDialog(this, "Cadastrado");
+            lista.add(p);
+            posicao ++;
+            Limpar();
             }
-           
-            
-        }
-        Limpar();
-        
     }//GEN-LAST:event_BCadastraActionPerformed
 
     private void BExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BExcluirActionPerformed
-        // TODO add your handling code here:
-        //verifica se o codigo foi informado
-        lista.remove(lista.get(posicao));
-        Limpar();
-    }
+      // TODO add your handling code here:
+            PessoaDAO dao = new PessoaDAO();
+            boolean deucerto = dao.excluir(lista.get(posicao));
+            if(deucerto==true){
+                JOptionPane.showMessageDialog(rootPane,"Excluido com sucesso");
+                 //atualiza a lista sem pessoa excluida
+                lista = dao.listar();
+                Limpar();    
+            }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Erro ao excluir");
+            }     
+        }
     private void Limpar(){
         txtcod.setText("");
         txtnome.setText("");
@@ -350,29 +368,32 @@ public class PessoaManter extends javax.swing.JFrame {
     }//GEN-LAST:event_BUltimoActionPerformed
 
     private void BConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BConsultarActionPerformed
-        // TODO add your handling code here:
-        String consulta = JOptionPane.showInputDialog("Digite o nome");
-        Integer achou =null;
-        Boolean encontrou=false;
-        if(consulta.isEmpty()==false){
-            for (Pessoa pessoa : lista){
-                if(consulta.equals(pessoa.getNome())){
-                    encontrou=true;
-                    txtnome.setText(pessoa.getNome());
-                    txtcod.setText(pessoa.getCodigo().toString());
-                    if(pessoa.getSexo().equals("F")){
-                        SCombocaixa.setSelectedIndex(1);
-                    }else if(pessoa.getSexo().equals("M")){
-                        SCombocaixa.setSelectedIndex(2);
+      // TODO add your handling code here:
+        Integer consulta = Integer.parseInt(JOptionPane.showInputDialog("Digite o código da pessoa: "));
+        Integer achou = 0;
+        Boolean encontrou = false;
+        if (consulta != 0) {
+            for (Pessoa p : lista) {
+                if (consulta == p.getCodigo()) {
+                    encontrou = true;
+                    txtcod.setText(p.getCodigo().toString());
+                    txtnome.setText(p.getNome());
+                    switch (p.getSexo()) {
+                        case "M":
+                            SCombocaixa.setSelectedIndex(1);
+                            break;
+                        case "F":
+                            SCombocaixa.setSelectedIndex(2);
+                            break;
                     }
-                    posicao=achou;
+                    posicao = achou;
                     break;
                 }
                 achou++;
             }
         }
-        if(encontrou==false){
-            JOptionPane.showMessageDialog(rootPane,"Pessoa não encontrada. ");
+        if (encontrou == false) {
+            JOptionPane.showMessageDialog(rootPane, "Pessoa não encontrada. ");
         }
     }//GEN-LAST:event_BConsultarActionPerformed
 
@@ -380,6 +401,13 @@ public class PessoaManter extends javax.swing.JFrame {
         // TODO add your handling code here:
         Limpar();
     }//GEN-LAST:event_BLimparActionPerformed
+
+    private void btnListagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListagemActionPerformed
+        // TODO add your handling code here:
+        PessoaLista listax = new PessoaLista();
+        listax.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnListagemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -426,6 +454,7 @@ public class PessoaManter extends javax.swing.JFrame {
     private javax.swing.JButton BProximo;
     private javax.swing.JButton BUltimo;
     private javax.swing.JComboBox SCombocaixa;
+    private javax.swing.JButton btnListagem;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;

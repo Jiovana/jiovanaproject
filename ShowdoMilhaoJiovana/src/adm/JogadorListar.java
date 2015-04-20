@@ -6,7 +6,7 @@
 
 package adm;
 
-import java.util.ArrayList;
+import DAO.JogadorDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import modelo.Jogador;
@@ -22,33 +22,8 @@ public class JogadorListar extends javax.swing.JFrame {
      */
     public JogadorListar() {
         initComponents();
-        List<Jogador> jogadores = new ArrayList<Jogador>();
-        
-        Jogador j1 = new Jogador();
-        j1.setLogin("Eduardo");
-        j1.setSenha("10vinte");
-        j1.setEmail("edu@emailfalso.com");
-        jogadores.add(j1);
-        
-        Jogador j2 = new Jogador();
-        j2.setLogin("Rodrigo");
-        j2.setSenha("pascoa");
-        j2.setEmail("ogirdor@emailfalso.com");
-        jogadores.add(j2);
-        
-        Jogador j3 = new Jogador();
-        j3.setLogin("Marina");
-        j3.setSenha("chocolate");
-        j3.setEmail("mareina@emailfalso.com");
-        jogadores.add(j3);
-        
-        Jogador j4 = new Jogador();
-        j4.setLogin("Gorobinha");
-        j4.setSenha("gorobinha21");
-        j4.setEmail("gorobinha@emailfalso.com");
-        jogadores.add(j4);
-        
-        
+        JogadorDAO dao = new JogadorDAO();
+        List<Jogador> jogadores = dao.listar();
                 
         DefaultTableModel modelo  = (DefaultTableModel)tabela.getModel();
         Object[] linha = new Object[modelo.getColumnCount()];
@@ -58,10 +33,8 @@ public class JogadorListar extends javax.swing.JFrame {
             linha[1] = item.getSenha();
             linha[2] = item.getEmail();
             modelo.addRow(linha);
-        }
-        
+        }  
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
