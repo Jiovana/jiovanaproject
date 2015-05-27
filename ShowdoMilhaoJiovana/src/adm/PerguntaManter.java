@@ -253,7 +253,7 @@ public class PerguntaManter extends javax.swing.JFrame {
 
         caixacerta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "a", "b", "c", "d" }));
 
-        caixanivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        caixanivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "1", "2", "3", "4", "5" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

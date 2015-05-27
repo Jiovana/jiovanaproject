@@ -17,6 +17,19 @@ public class Ranking {
     private String login;
     private Integer pontos;
     private Date data;
+    private Jogador j;
+
+    public Jogador getJ() {
+        return j;
+    }
+
+    public void setJ(Jogador j) {
+        this.j = j;
+    }
+    
+    public Ranking(){
+        j = new Jogador();
+    }
 
     public Integer getId() {
         return id;
@@ -49,6 +62,8 @@ public class Ranking {
     public void setData(Date data) {
         this.data = data;
     }
+
+    
     
     
     

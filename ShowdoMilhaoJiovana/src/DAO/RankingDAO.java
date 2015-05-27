@@ -13,10 +13,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.JogoTodo;
 import modelo.Ranking;
 
 /**
@@ -40,7 +41,7 @@ public class RankingDAO {
         Date date = null;  
         try {  
             DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
-            date = (java.util.Date)formatter.parse(data);  
+            date = (Date)(java.util.Date)formatter.parse(data);  
         } catch (ParseException e) {              
             throw e;  
         }  
@@ -49,7 +50,7 @@ public class RankingDAO {
     public List<Ranking> listar() throws Exception{
         //criar lista
         List<Ranking> lista = new ArrayList<Ranking>();
-        String sql = "SELECT * FROM ranking";
+        String sql = "SELECT * FROM ranking ORDER BY pontos DESC";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             //executa sql e joga em um resultSet
@@ -58,14 +59,36 @@ public class RankingDAO {
             while(res.next()){
                 Ranking r= new Ranking();
                 r.setId(res.getInt("id"));
-                r.setLogin(res.getString("login"));
-                r.setData(formataData(res.getString("data")));
-                r.setPontos(Integer.parseInt(res.getString("pontos")));
+                r.getJ().setLogin(res.getString("login"));
+                r.setData(res.getDate("Data"));
+                r.setPontos(res.getInt("pontos"));
                 lista.add(r);
             }
         } catch (SQLException ex) {
             Logger.getLogger(PerguntaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
+    }
+    public Boolean inserir(Ranking ranking) {
+        Boolean retorno;
+        String sql = "INSERT INTO ranking(login, pontos,data)" + "VALUES(?,?,?)";
+        //prepara conexao
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+            //insere parametros
+            
+            pst.setString(1, ranking.getJ().getLogin());
+            pst.setInt(2, ranking.getPontos());
+            pst.setDate(3,(Date)ranking.getData());
+            
+            //executa sql no banco
+            pst.executeUpdate();
+            retorno = true;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
     }
 }

@@ -38,7 +38,7 @@ public class PerguntaDAO {
             pst.setString(4, pergunta.getC());
             pst.setString(5, pergunta.getD());
             pst.setString(6, pergunta.getCerta());
-            pst.setString(7, pergunta.getNivel().toString());
+            pst.setInt(7, pergunta.getNivel());
             //executa sql no banco
             pst.executeUpdate();
             retorno = true;
@@ -49,7 +49,56 @@ public class PerguntaDAO {
         }
         return retorno;
     }
-    
+    public List<Pergunta> listarNivel1(){
+       List<Pergunta> lista1 = new ArrayList<Pergunta>();
+        String sql = "SELECT * FROM pergunta WHERE nivel = 1 ORDER BY RANDOM() LIMIT 5";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+            //executa sql e joga em um resultSet
+            ResultSet res = pst.executeQuery();
+            //enquanto tiver registro vai relacionar com a classe pergunta e adicionar na lista
+            while(res.next()){
+                Pergunta j= new Pergunta();
+                j.setId(res.getInt("Id"));
+                j.setEnunciado(res.getString("enunciado"));
+                j.setA(res.getString("A"));
+                j.setB(res.getString("B"));
+                j.setC(res.getString("C"));
+                j.setD(res.getString("D"));
+                j.setCerta(res.getString("Certa"));
+                j.setNivel(res.getInt("Nivel"));
+                lista1.add(j);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PerguntaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista1;
+    } 
+    public List<Pergunta> listarNivel2(){
+       List<Pergunta> lista2 = new ArrayList<Pergunta>();
+        String sql = "SELECT * FROM pergunta WHERE nivel = 2 ORDER BY RANDOM() LIMIT 5";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+            //executa sql e joga em um resultSet
+            ResultSet res = pst.executeQuery();
+            //enquanto tiver registro vai relacionar com a classe pergunta e adicionar na lista
+            while(res.next()){
+                Pergunta j= new Pergunta();
+                j.setId(res.getInt("Id"));
+                j.setEnunciado(res.getString("enunciado"));
+                j.setA(res.getString("A"));
+                j.setB(res.getString("B"));
+                j.setC(res.getString("C"));
+                j.setD(res.getString("D"));
+                j.setCerta(res.getString("Certa"));
+                j.setNivel(res.getInt("Nivel"));
+                lista2.add(j);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PerguntaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista2;
+    } 
     public List<Pergunta> listar(){
         //cirar lista de jogador
         List<Pergunta> lista = new ArrayList<Pergunta>();

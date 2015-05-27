@@ -6,6 +6,7 @@
 
 package adm;
 
+import DAO.RankingDAO;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,62 +28,19 @@ public class RankingListar extends javax.swing.JFrame {
      * Creates new form RankingListar
      * @throws java.text.ParseException
      */
-    public RankingListar() throws ParseException {
+    public RankingListar() throws ParseException, Exception {
         initComponents();
-        List<Ranking> ranking = new ArrayList<>();
+        RankingDAO dao = new RankingDAO();
+        List<Ranking> rankings = dao.listar();
         
-        String datahora1 = "12/03/2015 17:57";
-        DateFormat formatado1 = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        Date data1 = formatado1.parse(datahora1);
-        
-        String datahora2 = "13/03/2015 09:33";
-        DateFormat formatado2 = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        Date data2 = formatado2.parse(datahora2);
-        
-        String datahora3 = "13/03/2015 14:20";
-        DateFormat formatado3 = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        Date data3 = formatado3.parse(datahora3);
-        
-        String datahora4 = "16/03/2015 22:48";
-        DateFormat formatado4 = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        Date data4 = formatado4.parse(datahora4);
-        
-        Ranking r1 = new Ranking();
-        r1.setId(1);
-        r1.setLogin("MichaelM");
-        r1.setPontos(25);
-        r1.setData(data1);
-        ranking.add(r1);
-        
-        Ranking r2 = new Ranking();
-        r2.setId(2);
-        r2.setLogin("JiovanaG");
-        r2.setPontos(22);
-        r2.setData(data2);
-        ranking.add(r2);
-        
-        Ranking r3 = new Ranking();
-        r3.setId(3);
-        r3.setLogin("IvanB");
-        r3.setPontos(19);
-        r3.setData(data3);
-        ranking.add(r3);
-        
-        Ranking r4 = new Ranking();
-        r4.setId(4);
-        r4.setLogin("RobertaF");
-        r4.setPontos(18);
-        r4.setData(data4);
-        ranking.add(r4);
-                
         DefaultTableModel modelo  = (DefaultTableModel)tabela.getModel();
         Object[] linha = new Object[modelo.getColumnCount()];
         
-        for (Ranking item : ranking) {
-            linha[0] = item.getId();
-            linha[1] = item.getLogin();
-            linha[2] = item.getPontos();
-            linha[3] = item.getData();
+        for (Ranking item : rankings) {
+            //linha[0] = item.getId();
+            linha[0] = item.getLogin();
+            linha[1] = item.getPontos();
+            linha[2] = item.getData();
             modelo.addRow(linha);
         }
     }
@@ -109,14 +67,14 @@ public class RankingListar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Login", "Pontos", "Data"
+                "Login", "Pontos", "Data"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -133,33 +91,28 @@ public class RankingListar extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -198,6 +151,8 @@ public class RankingListar extends javax.swing.JFrame {
                 try {
                     new RankingListar().setVisible(true);
                 } catch (ParseException ex) {
+                    Logger.getLogger(RankingListar.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
                     Logger.getLogger(RankingListar.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
