@@ -66,6 +66,8 @@ public class JogadorCadastro extends javax.swing.JFrame {
         btnimagem = new javax.swing.JButton();
         lblfoto = new javax.swing.JLabel();
         txtsenha = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -260,6 +262,10 @@ public class JogadorCadastro extends javax.swing.JFrame {
         lblfoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Italy.png"))); // NOI18N
         lblfoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 2));
 
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/raibowy.gif"))); // NOI18N
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/raibowy.gif"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -290,14 +296,21 @@ public class JogadorCadastro extends javax.swing.JFrame {
                 .addGap(78, 78, 78))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(190, 190, 190))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel26)
+                .addGap(153, 153, 153))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -349,6 +362,7 @@ public class JogadorCadastro extends javax.swing.JFrame {
         JFileChooser fc = new JFileChooser();
         int res = fc.showOpenDialog(null);
         if (res == JFileChooser.APPROVE_OPTION) {
+
             //pegar arquivo selecionado
             File file = fc.getSelectedFile();
             imagem = ManipularImagem.setImagemDimensao(file.getAbsolutePath(), 160, 160);
@@ -435,7 +449,7 @@ public class JogadorCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
         Jogador j = new Jogador();
         if (txtlogin.getText().isEmpty() || txtsenha.getText().isEmpty() || txtemail.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
+            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos.");
         } else {
             j.setLogin(txtlogin.getText());
             j.setSenha(txtsenha.getText());
@@ -496,6 +510,7 @@ public class JogadorCadastro extends javax.swing.JFrame {
             jogador.setLogin(txtlogin.getText());
             jogador.setEmail(txtemail.getText());
             jogador.setSenha(txtsenha.getText());
+            jogador.setImagem(ManipularImagem.getImgBytes(imagem));
             JogadorDAO dao = new JogadorDAO();
             Boolean deucerto = dao.atualizar(jogador);
 
@@ -536,6 +551,8 @@ public class JogadorCadastro extends javax.swing.JFrame {
     private javax.swing.JButton btnultimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

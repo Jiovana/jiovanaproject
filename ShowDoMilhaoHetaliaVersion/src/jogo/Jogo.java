@@ -41,7 +41,7 @@ public class Jogo extends javax.swing.JFrame {
         this.todo = todo;
     }
 
-    static Integer excluidos;
+    private static Integer excluidos;
 
     public static Integer getExcluidos() {
         return excluidos;
@@ -101,11 +101,7 @@ public class Jogo extends javax.swing.JFrame {
         btnpular = new javax.swing.JButton();
         btncartas = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        lblerro = new javax.swing.JLabel();
-        lblpara = new javax.swing.JLabel();
         lblacerto = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -117,6 +113,19 @@ public class Jogo extends javax.swing.JFrame {
         btnparar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         lblpergunta = new javax.swing.JLabel();
+        lblnivel = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        lblpara = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        lblerro = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -144,13 +153,13 @@ public class Jogo extends javax.swing.JFrame {
         lblfoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
 
         btna.setBackground(new java.awt.Color(255, 255, 204));
-        btna.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        btna.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btna.setForeground(new java.awt.Color(255, 51, 0));
         btna.setText("Opção1");
         btna.setToolTipText("");
 
         btnb.setBackground(new java.awt.Color(255, 255, 204));
-        btnb.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        btnb.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnb.setForeground(new java.awt.Color(255, 51, 0));
         btnb.setText("Opção2");
         btnb.addActionListener(new java.awt.event.ActionListener() {
@@ -160,12 +169,12 @@ public class Jogo extends javax.swing.JFrame {
         });
 
         btnc.setBackground(new java.awt.Color(255, 255, 204));
-        btnc.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        btnc.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnc.setForeground(new java.awt.Color(255, 51, 0));
         btnc.setText("Opção3");
 
         btnd.setBackground(new java.awt.Color(255, 255, 204));
-        btnd.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        btnd.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnd.setForeground(new java.awt.Color(255, 51, 0));
         btnd.setText("Opção4");
 
@@ -173,7 +182,7 @@ public class Jogo extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 5, true));
 
         btnpular.setBackground(new java.awt.Color(255, 255, 204));
-        btnpular.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        btnpular.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         btnpular.setForeground(new java.awt.Color(255, 51, 0));
         btnpular.setText("PULAR");
         btnpular.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
@@ -184,7 +193,7 @@ public class Jogo extends javax.swing.JFrame {
         });
 
         btncartas.setBackground(new java.awt.Color(255, 255, 204));
-        btncartas.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        btncartas.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         btncartas.setForeground(new java.awt.Color(255, 51, 0));
         btncartas.setText("CARTAS");
         btncartas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
@@ -199,11 +208,11 @@ public class Jogo extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnpular, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btncartas, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(btnpular, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(btncartas, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,30 +227,12 @@ public class Jogo extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 153, 102));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 5, true));
 
-        lblerro.setBackground(new java.awt.Color(255, 255, 204));
-        lblerro.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        lblerro.setForeground(new java.awt.Color(255, 51, 0));
-        lblerro.setText("0");
-
-        lblpara.setBackground(new java.awt.Color(255, 255, 204));
-        lblpara.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        lblpara.setForeground(new java.awt.Color(255, 51, 0));
-        lblpara.setText("0");
-
         lblacerto.setBackground(new java.awt.Color(255, 255, 204));
-        lblacerto.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        lblacerto.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         lblacerto.setForeground(new java.awt.Color(255, 51, 0));
         lblacerto.setText("0");
 
-        jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 51, 0));
-        jLabel6.setText("ERRAR");
-
-        jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 51, 0));
-        jLabel7.setText("PARAR");
-
-        jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 51, 0));
         jLabel8.setText("ACERTAR");
 
@@ -250,39 +241,22 @@ public class Jogo extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(lblerro)
-                        .addGap(42, 42, 42)
-                        .addComponent(lblpara)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(lblacerto)
-                        .addGap(14, 14, 14)))
-                .addContainerGap())
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblerro)
-                    .addComponent(lblpara)
-                    .addComponent(lblacerto))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblacerto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel8))
         );
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iceland.png"))); // NOI18N
@@ -295,12 +269,12 @@ public class Jogo extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/norway.png"))); // NOI18N
 
-        lbljogador.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        lbljogador.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         lbljogador.setForeground(new java.awt.Color(255, 51, 0));
         lbljogador.setText("jogador");
 
-        btnconfirmar.setBackground(new java.awt.Color(255, 255, 204));
-        btnconfirmar.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        btnconfirmar.setBackground(new java.awt.Color(153, 0, 0));
+        btnconfirmar.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         btnconfirmar.setForeground(new java.awt.Color(255, 51, 0));
         btnconfirmar.setText("CONFIRMAR");
         btnconfirmar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
@@ -310,8 +284,8 @@ public class Jogo extends javax.swing.JFrame {
             }
         });
 
-        btnparar.setBackground(new java.awt.Color(255, 255, 204));
-        btnparar.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        btnparar.setBackground(new java.awt.Color(153, 0, 0));
+        btnparar.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         btnparar.setForeground(new java.awt.Color(255, 51, 0));
         btnparar.setText("PARAR");
         btnparar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
@@ -324,7 +298,7 @@ public class Jogo extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(153, 0, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 5));
 
-        lblpergunta.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        lblpergunta.setFont(new java.awt.Font("Segoe Print", 1, 16)); // NOI18N
         lblpergunta.setForeground(new java.awt.Color(255, 51, 0));
         lblpergunta.setText("PERGUNTA");
 
@@ -345,48 +319,164 @@ public class Jogo extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        lblnivel.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        lblnivel.setForeground(new java.awt.Color(255, 51, 0));
+        lblnivel.setText("nivel");
+
+        jPanel3.setBackground(new java.awt.Color(255, 153, 102));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 5, true));
+
+        jLabel7.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel7.setText("PARAR");
+
+        lblpara.setBackground(new java.awt.Color(255, 255, 204));
+        lblpara.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        lblpara.setForeground(new java.awt.Color(255, 51, 0));
+        lblpara.setText("0");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(lblpara)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblpara)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(23, 23, 23))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 153, 102));
+        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 5, true));
+
+        jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel6.setText("ERRAR");
+
+        lblerro.setBackground(new java.awt.Color(255, 255, 204));
+        lblerro.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        lblerro.setForeground(new java.awt.Color(255, 51, 0));
+        lblerro.setText("0");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(lblerro)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblerro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6))
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/belgiun.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/greece.png"))); // NOI18N
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/netherlands.png"))); // NOI18N
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/turkey.png"))); // NOI18N
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/raibowy.gif"))); // NOI18N
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/raibowy.gif"))); // NOI18N
+
         javax.swing.GroupLayout pnljogoLayout = new javax.swing.GroupLayout(pnljogo);
         pnljogo.setLayout(pnljogoLayout);
         pnljogoLayout.setHorizontalGroup(
             pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnljogoLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel5)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel3)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnljogoLayout.createSequentialGroup()
                 .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnljogoLayout.createSequentialGroup()
-                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btna, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(159, 159, 159))
-                    .addGroup(pnljogoLayout.createSequentialGroup()
-                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(pnljogoLayout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(btnconfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(56, 56, 56)
-                                .addComponent(btnparar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblfoto)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(117, 117, 117)))
+                        .addGap(263, 263, 263))
                     .addGroup(pnljogoLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(lbljogador)))
-                .addGap(78, 78, 78))
+                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnljogoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(205, 205, 205)
+                                .addComponent(btnconfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(98, 98, 98)
+                                .addComponent(btnparar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btna, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnljogoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel10)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)))
+                        .addGap(0, 1, Short.MAX_VALUE)))
+                .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnljogoLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel12)
+                        .addGap(39, 39, 39))
+                    .addGroup(pnljogoLayout.createSequentialGroup()
+                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnljogoLayout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(lblnivel)
+                                .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnljogoLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel14)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(lbljogador)
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jLabel13))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnljogoLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblfoto))))
+                            .addGroup(pnljogoLayout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18))))
         );
         pnljogoLayout.setVerticalGroup(
             pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,47 +491,65 @@ public class Jogo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnd))
-                    .addGroup(pnljogoLayout.createSequentialGroup()
-                        .addComponent(lblfoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbljogador)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnljogoLayout.createSequentialGroup()
-                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnparar)
-                            .addComponent(btnconfirmar))
-                        .addGap(33, 33, 33))
-                    .addGroup(pnljogoLayout.createSequentialGroup()
+                        .addComponent(btnd)
+                        .addGap(18, 18, 18)
                         .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnljogoLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnljogoLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnljogoLayout.createSequentialGroup()
+                                .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnconfirmar)
+                                    .addComponent(btnparar))
+                                .addGap(35, 35, 35)))
+                        .addGap(8, 8, 8)
                         .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel9))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel5))
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel1)
+                                .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel2)))))
+                    .addGroup(pnljogoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblfoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblnivel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(lbljogador, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnljogoLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnljogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(pnljogoLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(pnljogoLayout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        lblnivel.getAccessibleContext().setAccessibleName("lblnivel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnljogo, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+            .addComponent(pnljogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnljogo, javax.swing.GroupLayout.PREFERRED_SIZE, 541, Short.MAX_VALUE)
+            .addComponent(pnljogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -453,16 +561,24 @@ public class Jogo extends javax.swing.JFrame {
         //começar o jogo
         todo = new JogoTodo();
         todo.setJogador(jogador);
+        if(jogador.getImagem() == null){
+            lblfoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Italy.png")));
+        }else{
         ManipularImagem.exibiImagemLabel(jogador.getImagem(), lblfoto);
+        }
         premio = 5;
         premioaux = 0;
+        lblacerto.setText(premioaux.toString());
+        errar = 0;
+        parar = 0;
         //buscar as perguntas do nivel 1
         nivel = 1;
+        lblnivel.setText("Nível: " + nivel.toString());
         dao = new PerguntaDAO();
         perguntas = dao.listarNivel(nivel);
         //colocar a primeira q aparece no patual
         patual = perguntas.get(0);
-        extra = perguntas.get(1);
+        extra = perguntas.get(1);// vai pegar a proxima da lista
         perguntas.remove(1);
         //exibir na tela
         lblpergunta.setText(patual.getEnunciado());
@@ -470,110 +586,194 @@ public class Jogo extends javax.swing.JFrame {
         btnb.setText(patual.getB());
         btnc.setText(patual.getC());
         btnd.setText(patual.getD());
+        //pros botoes estarem sempre ativos
+        btna.setEnabled(true);
+        btnb.setEnabled(true);
+        btnc.setEnabled(true);
+        btnd.setEnabled(true);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnconfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconfirmarActionPerformed
         // TODO add your handling code here:
-        //verificar se acertou 
-        boolean acerto = false;
-
-        String certa = patual.getCerta();
-        if (certa.equalsIgnoreCase("A") && btna.isSelected()) {
-            acerto = true;
-        } else if (certa.equalsIgnoreCase("B") && btnb.isSelected()) {
-            acerto = true;
-        } else if (certa.equalsIgnoreCase("C") && btnc.isSelected()) {
-            acerto = true;
-        } else if (certa.equalsIgnoreCase("D") && btnd.isSelected()) {
-            acerto = true;
+        if (btna.isSelected() == false && btnb.isSelected() == false && btnc.isSelected() == false && btnd.isSelected() == false) {
+            JOptionPane.showMessageDialog(rootPane, "Você precisa marcar pelo menos uma alternativa!");
         } else {
-            acerto = false;
-        }
-        if (nivel == 1) {
-            if (acerto == true) {
-                premioaux = premioaux + premio;
-                todo.setGanhos(premioaux);
-                lblacerto.setText(todo.getGanhos().toString());
-                parar = premioaux / 2;
-                lblpara.setText(parar.toString());
-                errar = premioaux / 3;
-                lblerro.setText(errar.toString());
+            lblnivel.setText("Nível: " + nivel.toString());
+            //verificar se acertou 
+            boolean acerto = false;
+            //vai verificar se o botão marcado está certo
+            String certa = patual.getCerta();
+            if (certa.equalsIgnoreCase("A") && btna.isSelected()) {
+                acerto = true;
+            } else if (certa.equalsIgnoreCase("B") && btnb.isSelected()) {
+                acerto = true;
+            } else if (certa.equalsIgnoreCase("C") && btnc.isSelected()) {
+                acerto = true;
+            } else if (certa.equalsIgnoreCase("D") && btnd.isSelected()) {
+                acerto = true;
             } else {
-                audio.parar();
-                todo.setGanhos(errar);
-                Fim tela = new Fim();
-                tela.setTodo(todo);
-                tela.setVisible(true);
-                this.setVisible(false);
+                acerto = false;
             }
-        } else if (nivel == 2) {
-            if (acerto == true) {
-                premioaux = premioaux + premio * 2;
-                todo.setGanhos(premioaux);
-                lblacerto.setText(todo.getGanhos().toString());
-                parar = premioaux / 2;
-                lblpara.setText(parar.toString());
-                errar = premioaux / 3;
-                lblerro.setText(errar.toString());
-            } else {
-                audio.parar();
-                todo.setGanhos(errar);
-                Fim tela = new Fim();
-                tela.setTodo(todo);
-                tela.setVisible(true);
-                this.setVisible(false);
-            }
-        } else if (nivel == 3) {
-            if (acerto == true) {
-                premioaux = premioaux + premio * 3;
-                todo.setGanhos(premioaux);
-                lblacerto.setText(todo.getGanhos().toString());
-                parar = premioaux / 2;
-                lblpara.setText(parar.toString());
-                errar = premioaux / 3;
-                lblerro.setText(errar.toString());
-            } else {
-                audio.parar();
-                todo.setGanhos(errar);
-                Fim tela = new Fim();
-                tela.setTodo(todo);
-                tela.setVisible(true);
-                this.setVisible(false);
-            }
-        }
-        //elimina a pergunta q esta sendo exibida
-        dao = new PerguntaDAO();
-        perguntas.remove(0);
+            if (nivel == 1) {
 
-        if (perguntas.isEmpty()) {
-            nivel++;
-            if (nivel == 4) {
-                audio.parar();
-                Fim fim = new Fim();
-                todo.setGanhos(premioaux);
-                fim.setTodo(todo);
-                fim.setVisible(true);
-                this.setVisible(false);
-                return;
-            } else {
-                perguntas = dao.listarNivel(nivel);
-                extra = perguntas.get(1);
-                perguntas.remove(1);
-            }
-        }
-        patual = perguntas.get(0);
-        //exibir na tela
-        lblpergunta.setText(patual.getEnunciado());
-        btna.setText(patual.getA());
-        btnb.setText(patual.getB());
-        btnc.setText(patual.getC());
-        btnd.setText(patual.getD());
+                if (acerto == true) {
+                    premioaux = premioaux + premio;
+                    todo.setGanhos(premioaux);
+                    lblacerto.setText(todo.getGanhos().toString());
+                    parar = premioaux / 2;
+                    lblpara.setText(parar.toString());
+                    errar = premioaux / 3;
+                    lblerro.setText(errar.toString());
+                } else {
+                    audio.parar();
+                    todo.setGanhos(errar);
+                    Fim tela = new Fim();
+                    tela.setTodo(todo);
+                    tela.setVisible(true);
+                    this.setVisible(false);
+                }
+            } else if (nivel == 2) {
 
-        buttonGroup1.add(btna);
-        buttonGroup1.add(btnb);
-        buttonGroup1.add(btnc);
-        buttonGroup1.add(btnd);
-        buttonGroup1.clearSelection();//desmarcar tudo
+                if (acerto == true) {
+                    premioaux = premioaux + (premio * 2);
+                    todo.setGanhos(premioaux);
+                    lblacerto.setText(todo.getGanhos().toString());
+                    parar = premioaux / 2;
+                    lblpara.setText(parar.toString());
+                    errar = premioaux / 3;
+                    lblerro.setText(errar.toString());
+                } else {
+                    audio.parar();
+                    todo.setGanhos(errar);
+                    Fim tela = new Fim();
+                    tela.setTodo(todo);
+                    tela.setVisible(true);
+                    this.setVisible(false);
+                }
+            } else if (nivel == 3) {
+
+                if (acerto == true) {
+                    premioaux = premioaux + (premio * 3);
+                    todo.setGanhos(premioaux);
+                    lblacerto.setText(todo.getGanhos().toString());
+                    parar = premioaux / 2;
+                    lblpara.setText(parar.toString());
+                    errar = premioaux / 3;
+                    lblerro.setText(errar.toString());
+                } else {
+                    audio.parar();
+                    todo.setGanhos(errar);
+                    Fim tela = new Fim();
+                    tela.setTodo(todo);
+                    tela.setVisible(true);
+                    this.setVisible(false);
+                }
+            } else if (nivel == 4) {
+
+                if (acerto == true) {
+                    premioaux = premioaux + (premio * 4);
+                    todo.setGanhos(premioaux);
+                    lblacerto.setText(todo.getGanhos().toString());
+                    parar = premioaux / 2;
+                    lblpara.setText(parar.toString());
+                    errar = premioaux / 3;
+                    lblerro.setText(errar.toString());
+                } else {
+                    audio.parar();
+                    todo.setGanhos(errar);
+                    Fim tela = new Fim();
+                    tela.setTodo(todo);
+                    tela.setVisible(true);
+                    this.setVisible(false);
+                }
+            } else if (nivel == 5) {
+
+                if (acerto == true) {
+                    premioaux = premioaux + (premio * 5);
+                    todo.setGanhos(premioaux);
+                    lblacerto.setText(todo.getGanhos().toString());
+                    parar = premioaux / 2;
+                    lblpara.setText(parar.toString());
+                    errar = premioaux / 3;
+                    lblerro.setText(errar.toString());
+                } else {
+                    audio.parar();
+                    todo.setGanhos(errar);
+                    Fim tela = new Fim();
+                    tela.setTodo(todo);
+                    tela.setVisible(true);
+                    this.setVisible(false);
+                }
+            } else if (nivel == 6) {
+
+                if (acerto == true) {
+                    premioaux = 1000000;
+                    todo.setGanhos(premioaux);
+                    lblacerto.setText(todo.getGanhos().toString());
+                    parar = 0;
+                    lblpara.setText(parar.toString());
+                    errar = 0;
+                    lblerro.setText(errar.toString());
+                } else {
+                    audio.parar();
+                    todo.setGanhos(errar);
+                    Fim tela = new Fim();
+                    tela.setTodo(todo);
+                    tela.setVisible(true);
+                    this.setVisible(false);
+                }
+            }
+            //elimina a pergunta q esta sendo exibida
+            dao = new PerguntaDAO();
+            perguntas.remove(0);
+
+            if (perguntas.isEmpty()) {
+                nivel++;
+                lblnivel.setText("Nível: " + nivel.toString());
+                if (nivel == 7) {
+                    audio.parar();
+                    Fim fim = new Fim();
+                    todo.setGanhos(premioaux);
+                    fim.setTodo(todo);
+                    fim.setVisible(true);
+                    this.setVisible(false);
+                    return;
+                } else if (nivel == 6) {
+                    JOptionPane.showMessageDialog(rootPane, "=====Pergunta Final=====");
+                    perguntas = dao.listarNivel6();
+                    premioaux = 1000000;
+                    todo.setGanhos(premioaux);
+                    lblacerto.setText(todo.getGanhos().toString());
+                    parar = 0;
+                    lblpara.setText(parar.toString());
+                    errar = 0;
+                    lblerro.setText(errar.toString());
+                    
+                } else {
+                    perguntas = dao.listarNivel(nivel);
+                    extra = perguntas.get(1);
+                    perguntas.remove(1);
+                }
+            }
+            patual = perguntas.get(0);
+            //exibir na tela
+            lblpergunta.setText(patual.getEnunciado());
+            btna.setText(patual.getA());
+            btnb.setText(patual.getB());
+            btnc.setText(patual.getC());
+            btnd.setText(patual.getD());
+
+            buttonGroup1.add(btna);
+            buttonGroup1.add(btnb);
+            buttonGroup1.add(btnc);
+            buttonGroup1.add(btnd);
+            buttonGroup1.clearSelection();//desmarcar tudo
+            //pros botoes estarem sempre ativos
+            btna.setEnabled(true);
+            btnb.setEnabled(true);
+            btnc.setEnabled(true);
+            btnd.setEnabled(true);
+        }
     }//GEN-LAST:event_btnconfirmarActionPerformed
 
     private void btnbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbActionPerformed
@@ -591,14 +791,18 @@ public class Jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnpararActionPerformed
 
     private void btnpularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpularActionPerformed
-        // TODO add your handling code here:
+// TODO add your handling code here:
         if (todo.getPular() == 1) {
             JOptionPane.showMessageDialog(null, "\tAVISO:\nVocê só pode pular 1(uma) vez! ");
             btnpular.setEnabled(false);
+        } else if (nivel == 6) {
+            JOptionPane.showMessageDialog(null, "\tAVISO:\nVocê não pode pular a pergunta final! ");
+            btnpular.setEnabled(false);
         } else {
-            perguntas.set(0, extra);
             todo.setPular(1);
-            patual = extra;
+            
+            perguntas.set(0, extra);// vai definir  a
+            patual = extra;        //  pergunta atual como a extra
             //exibir na tela
             lblpergunta.setText(patual.getEnunciado());
             btna.setText(patual.getA());
@@ -606,77 +810,100 @@ public class Jogo extends javax.swing.JFrame {
             btnc.setText(patual.getC());
             btnd.setText(patual.getD());
             buttonGroup1.clearSelection();//desmarcar tudo
+            //botões sempre ativos
+            btna.setEnabled(true);
+            btnb.setEnabled(true);
+            btnc.setEnabled(true);
+            btnd.setEnabled(true);
         }
     }//GEN-LAST:event_btnpularActionPerformed
 
     private void btncartasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncartasActionPerformed
-
+        // se já usou uma vez
         if (todo.getCartas() == 1) {
             JOptionPane.showMessageDialog(rootPane, "Você só pode usar as cartas uma vez!");
             btncartas.setEnabled(false);
-        } else {
+        } else if (nivel == 6) {
+            JOptionPane.showMessageDialog(rootPane, "Você não pode usar as cartas na pergunta final!");
+            btncartas.setEnabled(false);
+        } else { // para usar as cartas
             todo.setCartas(1);
             Cartas tela = new Cartas();
             tela.setVisible(true);
         }
     }//GEN-LAST:event_btncartasActionPerformed
-    private void eliminarAlternativa(Integer elimina){
-        if (elimina == 0) {
-            //nada
-        } else if (elimina == 1) {
-            if (patual.getCerta().equalsIgnoreCase("a")) {
-                btnb.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("b")) {
-                btnc.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("c")) {
-                btnd.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("d")) {
-                btna.setEnabled(false);
-            }
-        } else if (elimina == 2) {
-            if (patual.getCerta().equalsIgnoreCase("a")) {
-                btnb.setEnabled(false);
-                btnc.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("b")) {
-                btnc.setEnabled(false);
-                btnd.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("c")) {
-                btnd.setEnabled(false);
-                btna.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("d")) {
-                btna.setEnabled(false);
-                btnb.setEnabled(false);
-            }
-        } else if (elimina == 3) {
-            if (patual.getCerta().equalsIgnoreCase("a")) {
-                btnb.setEnabled(false);
-                btnc.setEnabled(false);
-                btnd.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("b")) {
-                btnc.setEnabled(false);
-                btnd.setEnabled(false);
-                btna.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("c")) {
-                btnd.setEnabled(false);
-                btna.setEnabled(false);
-                btnb.setEnabled(false);
-            } else if (patual.getCerta().equalsIgnoreCase("d")) {
-                btna.setEnabled(false);
-                btnb.setEnabled(false);
-                btnc.setEnabled(false);
-            }
-        }
-        elimina = 0;
-        Jogo.setExcluidos(elimina);
-    }
+
     private void pnljogoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pnljogoFocusGained
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:       
     }//GEN-LAST:event_pnljogoFocusGained
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        // TODO add your handling code here:
-        eliminarAlternativa(Jogo.excluidos);
+        // TODO add your handling code here:       
+        // jgo.excluidos vai pegar a quantidade enviada pelas cartas 
+        if (Jogo.excluidos == 1) {
+            switch (patual.getCerta()) {
+                case ("A"):             // vai ver qual que tá certa e desabilitar o proximo botão
+                    btnb.setEnabled(false);
+                    break;
+                case ("B"):
+                    btnc.setEnabled(false);
+                    break;
+                case ("C"):
+                    btnd.setEnabled(false);
+                    break;
+                case ("D"):
+                    btna.setEnabled(false);
+                    break;
+            }
+        } else if (Jogo.excluidos == 2) {
+            switch (patual.getCerta()) {
+                case ("A"):
+                    btnb.setEnabled(false);
+                    btnc.setEnabled(false);
+                    break;
+                case ("B"):
+                    btnc.setEnabled(false);
+                    btnd.setEnabled(false);
+                    break;
+                case ("C"):
+                    btnd.setEnabled(false);
+                    btna.setEnabled(false);
+                    break;
+                case ("D"):
+                    btna.setEnabled(false);
+                    btnb.setEnabled(false);
+                    break;
+            }
+        } else if (Jogo.excluidos == 3) {
+            switch (patual.getCerta()) {
+                case ("A"):
+                    btnb.setEnabled(false);
+                    btnc.setEnabled(false);
+                    btnd.setEnabled(false);
+                    break;
+                case ("B"):
+                    btnc.setEnabled(false);
+                    btnd.setEnabled(false);
+                    btna.setEnabled(false);
+                    break;
+                case ("C"):
+                    btnd.setEnabled(false);
+                    btna.setEnabled(false);
+                    btnb.setEnabled(false);
+                    break;
+                case ("D"):
+                    btna.setEnabled(false);
+                    btnb.setEnabled(false);
+                    btnc.setEnabled(false);
+                    break;
+            }
+        } else { // se as cartas não eliminarem nenhum os botões continuam ativos
+            btna.setEnabled(true);
+            btnb.setEnabled(true);
+            btnc.setEnabled(true);
+            btnd.setEnabled(true);
+        }
+        Jogo.setExcluidos(0);
     }//GEN-LAST:event_formWindowGainedFocus
 
     /**
@@ -729,7 +956,13 @@ public class Jogo extends javax.swing.JFrame {
     private javax.swing.JButton btnparar;
     private javax.swing.JButton btnpular;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -739,11 +972,14 @@ public class Jogo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblacerto;
     private javax.swing.JLabel lblerro;
     private javax.swing.JLabel lblfoto;
     private javax.swing.JLabel lbljogador;
+    private javax.swing.JLabel lblnivel;
     private javax.swing.JLabel lblpara;
     private javax.swing.JLabel lblpergunta;
     private javax.swing.JPanel pnljogo;

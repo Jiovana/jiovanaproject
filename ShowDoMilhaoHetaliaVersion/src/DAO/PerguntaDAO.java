@@ -51,10 +51,36 @@ public class PerguntaDAO {
     }
     public List<Pergunta> listarNivel(Integer nivel){
        List<Pergunta> lista = new ArrayList<Pergunta>();
-        String sql = "SELECT * FROM pergunta WHERE nivel = ? ORDER BY RANDOM() LIMIT 5";
+        String sql = "SELECT * FROM pergunta WHERE nivel = ? ORDER BY RANDOM() LIMIT 6";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             pst.setInt(1, nivel);
+            //executa sql e joga em um resultSet
+            ResultSet res = pst.executeQuery();
+            //enquanto tiver registro vai relacionar com a classe pergunta e adicionar na lista
+            while(res.next()){
+                Pergunta j= new Pergunta();
+                j.setId(res.getInt("Id"));
+                j.setEnunciado(res.getString("enunciado"));
+                j.setA(res.getString("A"));
+                j.setB(res.getString("B"));
+                j.setC(res.getString("C"));
+                j.setD(res.getString("D"));
+                j.setCerta(res.getString("Certa"));
+                j.setNivel(res.getInt("Nivel"));
+                lista.add(j);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PerguntaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
+    }
+    public List<Pergunta> listarNivel6(){
+       List<Pergunta> lista = new ArrayList<Pergunta>();
+        String sql = "SELECT * FROM pergunta WHERE nivel = 6 ORDER BY RANDOM() LIMIT 1";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+            
             //executa sql e joga em um resultSet
             ResultSet res = pst.executeQuery();
             //enquanto tiver registro vai relacionar com a classe pergunta e adicionar na lista
